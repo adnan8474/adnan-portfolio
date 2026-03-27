@@ -81,6 +81,7 @@
     <div class="nav-inner">
       <a href="/" class="nav-brand">AA</a>
       <div class="nav-links">
+        <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
@@ -157,11 +158,51 @@
     </div>
   </section>
 
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title reveal-text"><span>What I Do</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal-up">
+          <div class="about-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Healthcare IT</h3>
+          <p>HL7 messaging, FHIR APIs, EHR/LIS integration, POCT middleware, diagnostic data pipelines, and device interfacing across NHS hospital networks.</p>
+        </div>
+        <div class="about-card reveal-up">
+          <div class="about-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h3>Diagnostics & Quality</h3>
+          <p>15+ POCT device types, IQC/EQA analysis, ISO 15189:2022 compliance, UKAS accreditation, device connectivity & validation.</p>
+        </div>
+        <div class="about-card reveal-up">
+          <div class="about-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Product & Commercial</h3>
+          <p>Product strategy & roadmaps, feature prioritisation, go-to-market, B2B sales & partnerships, stakeholder engagement.</p>
+        </div>
+        <div class="about-card reveal-up">
+          <div class="about-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Full-Stack Development</h3>
+          <p>React Native, FastAPI, Azure cloud, SQL databases, SaaS architecture, CI/CD pipelines, and mobile app development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Experience -->
   <section class="experience" id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-num">01</span>
+        <span class="section-num">02</span>
         <h2 class="section-title reveal-text"><span>Experience</span></h2>
       </div>
       <div class="timeline">
@@ -234,7 +275,7 @@
   <section class="projects" id="work">
     <div class="container">
       <div class="section-header">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <h2 class="section-title reveal-text"><span>Projects</span></h2>
       </div>
       <div class="project-grid">
@@ -242,8 +283,13 @@
         <!-- POCTIFY -->
         <div class="project-card project-card--featured tilt-card reveal-up">
           <div class="project-card-inner">
-            <div class="project-eyebrow">Founder &middot; HealthTech SaaS</div>
-            <h3 class="project-name">POCTIFY</h3>
+            <div class="project-header">
+              <img src="/images/poctify-logo.png" alt="POCTIFY" class="project-logo">
+              <div>
+                <div class="project-eyebrow">Founder &middot; HealthTech SaaS</div>
+                <h3 class="project-name">POCTIFY</h3>
+              </div>
+            </div>
             <p>A comprehensive Point-of-Care Testing platform with 10 live SaaS products, a mobile app, and 321+ API endpoints. Serving NHS trusts and healthcare organisations with AI-powered POCT governance, compliance automation, and analytics.</p>
             <div class="project-tags">
               <span>AI-Powered QMS</span>
@@ -273,8 +319,13 @@
         <!-- Sihtak -->
         <div class="project-card tilt-card reveal-up">
           <div class="project-card-inner">
-            <div class="project-eyebrow">Founder &middot; AI Health App</div>
-            <h3 class="project-name">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3>
+            <div class="project-header">
+              <img src="/images/sihtak-logo.png" alt="Sihtak" class="project-logo project-logo--round">
+              <div>
+                <div class="project-eyebrow">Founder &middot; AI Health App</div>
+                <h3 class="project-name">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3>
+              </div>
+            </div>
             <p>A free AI-powered health companion with 74 screens and 175 API endpoints. Voice AI chat, lab scanner OCR, medication tracking with drug interactions, nutrition, exercise, sleep & period tracking, family health circles, and a PDF health passport. Fully bilingual Arabic/English.</p>
             <div class="project-tags">
               <span>AI Voice Chat</span>
@@ -294,8 +345,13 @@
         <!-- Syrian Agency -->
         <div class="project-card tilt-card reveal-up">
           <div class="project-card-inner">
-            <div class="project-eyebrow">Family Business &middot; Since 1987</div>
-            <h3 class="project-name">Syrian Agency</h3>
+            <div class="project-header">
+              <img src="/images/syrian-agency-logo.png" alt="Syrian Agency" class="project-logo">
+              <div>
+                <div class="project-eyebrow">Family Business &middot; Since 1987</div>
+                <h3 class="project-name">Syrian Agency</h3>
+              </div>
+            </div>
             <p>A clinical diagnostics distribution company established in 1987 in Damascus, Syria. 40+ years connecting global diagnostic manufacturers with healthcare providers across the region. Reagents, laboratory analysers, and technical training with international experts.</p>
             <div class="project-tags">
               <span>40+ Years</span>
@@ -318,7 +374,7 @@
   <section class="education" id="education">
     <div class="container">
       <div class="section-header">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <h2 class="section-title reveal-text"><span>Education</span></h2>
       </div>
       <div class="edu-grid">
@@ -374,7 +430,7 @@
     <div class="container">
       <div class="contact-inner">
         <div class="section-header">
-          <span class="section-num">04</span>
+          <span class="section-num">05</span>
         </div>
         <h2 class="contact-heading reveal-text"><span>Let's build</span><span>something.</span></h2>
         <p class="contact-sub reveal-up">Whether you need POCT consultancy, product strategy, or want to discuss a collaboration — I'd love to hear from you.</p>
