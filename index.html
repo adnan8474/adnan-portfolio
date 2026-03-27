@@ -40,15 +40,27 @@
   </div>
 </div>
 
-<!-- ======== CURSOR ======== -->
-<div class="cur cur-ring" id="cRing"></div>
-<div class="cur cur-dot" id="cDot"></div>
+<!-- ======== WEBGL FLUID ======== -->
+<canvas id="fluid"></canvas>
 
-<!-- ======== PROGRESS ======== -->
-<div class="progress-bar" id="progressBar"></div>
+<!-- ======== CSS FALLBACK (no WebGL) ======== -->
+<div class="fluid-fallback" id="fluidFallback"></div>
 
-<!-- ======== NOISE ======== -->
+<!-- ======== CURSOR TRAIL ======== -->
+<div class="trail" id="trail">
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+  <div class="trail-dot"></div>
+</div>
+
+<!-- ======== GRAIN + PROGRESS ======== -->
 <div class="grain"></div>
+<div class="progress-bar" id="progressBar"></div>
 
 <!-- ======== NAV ======== -->
 <nav class="nav" id="nav">
@@ -67,46 +79,43 @@
   </div>
 </nav>
 
-<main id="smooth">
+<main>
 
 <!-- ======== HERO ======== -->
 <section class="hero" id="hero">
-  <canvas id="heroCanvas"></canvas>
   <div class="hero-grid">
     <div class="hero-col-l">
       <div class="hero-tag" data-r><span class="tag-pulse"></span>Available for opportunities</div>
-      <h1 class="hero-h">
-        <span class="line-wrap" data-r data-d="0.05"><span class="line-text" data-parallax="-30">ADNAN</span></span>
-        <span class="line-wrap" data-r data-d="0.15"><span class="line-text" data-parallax="-20">ALREFAI</span></span>
+      <h1 class="hero-name" aria-label="Adnan Alrefai">
+        <span class="name-row">ADNAN</span>
+        <span class="name-row">ALREFAI</span>
       </h1>
-      <div class="hero-sub" data-r data-d="0.3">
-        <span class="sub-dash"></span>
-        <span id="scramble" class="scramble-text">Product Growth Specialist</span>
+      <div class="hero-role" data-r data-d="0.3">
+        <span class="role-dash"></span>
+        <span class="role-text" id="roleText">Product Growth Specialist</span>
       </div>
-      <p class="hero-p" data-r data-d="0.4">Building the future of diagnostic healthcare.<br>Deploying POCT platforms across NHS hospitals and founding HealthTech ventures serving thousands of clinical professionals.</p>
+      <p class="hero-desc" data-r data-d="0.4">Building the future of diagnostic healthcare.<br>Deploying POCT platforms across NHS hospitals and founding HealthTech ventures serving thousands of clinical professionals.</p>
       <div class="hero-btns" data-r data-d="0.5">
-        <a href="#work" class="btn-fill magnetic"><span>Selected Work</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-        <a href="#contact" class="btn-line magnetic"><span>Contact</span></a>
+        <a href="#work" class="btn-primary magnetic"><span>Selected Work</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        <a href="#contact" class="btn-outline magnetic"><span>Contact</span></a>
       </div>
     </div>
     <div class="hero-col-r" data-r data-d="0.2">
-      <div class="img-wrap">
-        <div class="img-border"></div>
-        <div class="img-border img-border-2"></div>
-        <div class="img-glow"></div>
-        <div class="img-clip">
+      <div class="photo-wrap">
+        <div class="photo-glow"></div>
+        <div class="photo-frame">
           <img src="/images/adnan.png" alt="Adnan Alrefai" width="360" height="450">
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-counters">
-    <div class="hc" data-r data-d="0.6"><span class="hc-n" data-count="7">0</span><span class="hc-l">NHS Hospitals</span></div>
-    <div class="hc" data-r data-d="0.65"><span class="hc-n" data-count="10000" data-suf="+">0</span><span class="hc-l">Clinical Users</span></div>
-    <div class="hc" data-r data-d="0.7"><span class="hc-n" data-count="10">0</span><span class="hc-l">SaaS Platforms</span></div>
-    <div class="hc" data-r data-d="0.75"><span class="hc-n" data-count="321" data-suf="+">0</span><span class="hc-l">API Endpoints</span></div>
+  <div class="hero-stats">
+    <div class="stat" data-r data-d="0.6"><span class="stat-num" data-count="7">0</span><span class="stat-label">NHS Hospitals</span></div>
+    <div class="stat" data-r data-d="0.65"><span class="stat-num" data-count="10000" data-suf="+">0</span><span class="stat-label">Clinical Users</span></div>
+    <div class="stat" data-r data-d="0.7"><span class="stat-num" data-count="10">0</span><span class="stat-label">SaaS Platforms</span></div>
+    <div class="stat" data-r data-d="0.75"><span class="stat-num" data-count="321" data-suf="+">0</span><span class="stat-label">API Endpoints</span></div>
   </div>
-  <div class="scroll-cue" data-r data-d="1"><div class="scroll-cue-line"></div>Scroll</div>
+  <div class="scroll-hint" data-r data-d="1"><div class="scroll-line"></div>Scroll</div>
 </section>
 
 <!-- ======== MARQUEE ======== -->
@@ -118,12 +127,12 @@
 <!-- ======== ABOUT ======== -->
 <section class="about" id="about">
   <div class="container">
-    <div class="sec-top" data-r>
-      <span class="sec-idx">01</span><span class="sec-line"></span><span class="sec-lbl">About</span>
+    <div class="sec-header" data-r>
+      <span class="sec-num">01</span><span class="sec-rule"></span><span class="sec-title">About</span>
     </div>
     <div class="about-split">
-      <h2 class="about-h" data-r>Where clinical science<br>meets product<br>innovation<span class="dot-accent">.</span></h2>
-      <div class="about-right" data-r data-d="0.15">
+      <h2 class="about-h" data-r>Where clinical science<br>meets product<br>innovation<span class="accent-dot">.</span></h2>
+      <div class="about-text" data-r data-d="0.15">
         <p>I combine deep clinical expertise with modern software engineering to build healthcare platforms that actually work — from HL7/FHIR integrations to full-stack SaaS products serving thousands of NHS professionals.</p>
       </div>
     </div>
@@ -156,58 +165,59 @@
   </div>
 </section>
 
-<!-- ======== PROJECTS ======== -->
-<section class="work" id="work">
+<!-- ======== PROJECTS (STACKING) ======== -->
+<section class="projects" id="work">
   <div class="container">
-    <div class="sec-top" data-r>
-      <span class="sec-idx">02</span><span class="sec-line"></span><span class="sec-lbl">Selected Work</span>
+    <div class="sec-header" data-r>
+      <span class="sec-num">02</span><span class="sec-rule"></span><span class="sec-title">Selected Work</span>
     </div>
+    <div class="stack-wrap">
+      <article class="stack-card glow-card" style="--i:0" data-r>
+        <div class="glow-spot"></div>
+        <div class="card-head">
+          <div class="card-brand"><img src="/images/poctify-logo.png" alt="" class="card-logo"><div><span class="card-tag">Founder &middot; HealthTech SaaS</span><h3 class="card-name">POCTIFY</h3></div></div>
+          <a href="https://poctify.com" target="_blank" rel="noopener" class="card-link magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+        <p class="card-desc">A comprehensive Point-of-Care Testing platform with 10 live SaaS products, a mobile app, and 321+ API endpoints. Serving NHS trusts with AI-powered POCT governance, compliance automation, and analytics.</p>
+        <div class="card-tags"><span>AI QMS</span><span>EQA Analytics</span><span>Middleware</span><span>ISO 15189</span><span>React Native</span><span>FastAPI</span><span>Azure</span><span>321+ Endpoints</span></div>
+        <div class="card-domains">
+          <a href="https://poctify.com" target="_blank" rel="noopener">poctify.com</a>
+          <a href="https://interactive.poctify.com" target="_blank" rel="noopener">interactive.poctify.com</a>
+          <a href="https://qms.poctify.com" target="_blank" rel="noopener">qms.poctify.com</a>
+          <a href="https://eqa.poctify.com" target="_blank" rel="noopener">eqa.poctify.com</a>
+          <a href="https://ai.poctify.com" target="_blank" rel="noopener">ai.poctify.com</a>
+          <a href="https://codeshare.poctify.com" target="_blank" rel="noopener">codeshare.poctify.com</a>
+        </div>
+      </article>
 
-    <article class="proj glow-card" data-r>
-      <div class="glow-spot"></div>
-      <div class="proj-head">
-        <div class="proj-brand"><img src="/images/poctify-logo.png" alt="" class="proj-logo"><div><span class="proj-cat">Founder &middot; HealthTech SaaS</span><h3 class="proj-name">POCTIFY</h3></div></div>
-        <a href="https://poctify.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-      </div>
-      <p class="proj-desc">A comprehensive Point-of-Care Testing platform with 10 live SaaS products, a mobile app, and 321+ API endpoints. Serving NHS trusts with AI-powered POCT governance, compliance automation, and analytics.</p>
-      <div class="proj-tags"><span>AI QMS</span><span>EQA Analytics</span><span>Middleware</span><span>ISO 15189</span><span>React Native</span><span>FastAPI</span><span>Azure</span><span>321+ Endpoints</span></div>
-      <div class="proj-domains">
-        <a href="https://poctify.com" target="_blank" rel="noopener">poctify.com</a>
-        <a href="https://interactive.poctify.com" target="_blank" rel="noopener">interactive.poctify.com</a>
-        <a href="https://qms.poctify.com" target="_blank" rel="noopener">qms.poctify.com</a>
-        <a href="https://eqa.poctify.com" target="_blank" rel="noopener">eqa.poctify.com</a>
-        <a href="https://ai.poctify.com" target="_blank" rel="noopener">ai.poctify.com</a>
-        <a href="https://codeshare.poctify.com" target="_blank" rel="noopener">codeshare.poctify.com</a>
-      </div>
-    </article>
+      <article class="stack-card glow-card" style="--i:1" data-r>
+        <div class="glow-spot"></div>
+        <div class="card-head">
+          <div class="card-brand"><img src="/images/sihtak-logo.png" alt="" class="card-logo card-logo--rnd"><div><span class="card-tag">Founder &middot; AI Health App</span><h3 class="card-name">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3></div></div>
+          <a href="https://sihtak.com" target="_blank" rel="noopener" class="card-link magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+        <p class="card-desc">A free AI-powered health companion with 74 screens and 175 API endpoints. Voice AI chat, lab scanner OCR, medication tracking, nutrition, exercise, sleep & period tracking, family circles, and a PDF health passport. Fully bilingual Arabic/English.</p>
+        <div class="card-tags"><span>AI Voice Chat</span><span>Lab Scanner</span><span>Medication Tracker</span><span>74 Screens</span><span>React Native</span><span>FastAPI</span><span>Arabic/English</span></div>
+      </article>
 
-    <article class="proj glow-card" data-r>
-      <div class="glow-spot"></div>
-      <div class="proj-head">
-        <div class="proj-brand"><img src="/images/sihtak-logo.png" alt="" class="proj-logo proj-logo--rnd"><div><span class="proj-cat">Founder &middot; AI Health App</span><h3 class="proj-name">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3></div></div>
-        <a href="https://sihtak.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-      </div>
-      <p class="proj-desc">A free AI-powered health companion with 74 screens and 175 API endpoints. Voice AI chat, lab scanner OCR, medication tracking, nutrition, exercise, sleep & period tracking, family circles, and a PDF health passport. Fully bilingual Arabic/English.</p>
-      <div class="proj-tags"><span>AI Voice Chat</span><span>Lab Scanner</span><span>Medication Tracker</span><span>74 Screens</span><span>React Native</span><span>FastAPI</span><span>Arabic/English</span></div>
-    </article>
-
-    <article class="proj glow-card" data-r>
-      <div class="glow-spot"></div>
-      <div class="proj-head">
-        <div class="proj-brand"><img src="/images/syrian-agency-logo.png" alt="" class="proj-logo"><div><span class="proj-cat">Family Business &middot; Since 1987</span><h3 class="proj-name">Syrian Agency</h3></div></div>
-        <a href="https://syrianagency.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
-      </div>
-      <p class="proj-desc">A clinical diagnostics distribution company established in 1987 in Damascus. 40+ years connecting global diagnostic manufacturers with healthcare providers. Reagents, laboratory analysers, and technical training.</p>
-      <div class="proj-tags"><span>40+ Years</span><span>Lab Analysers</span><span>Reagent Distribution</span><span>Technical Training</span><span>Damascus</span></div>
-    </article>
+      <article class="stack-card glow-card" style="--i:2" data-r>
+        <div class="glow-spot"></div>
+        <div class="card-head">
+          <div class="card-brand"><img src="/images/syrian-agency-logo.png" alt="" class="card-logo"><div><span class="card-tag">Family Business &middot; Since 1987</span><h3 class="card-name">Syrian Agency</h3></div></div>
+          <a href="https://syrianagency.com" target="_blank" rel="noopener" class="card-link magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        </div>
+        <p class="card-desc">A clinical diagnostics distribution company established in 1987 in Damascus. 40+ years connecting global diagnostic manufacturers with healthcare providers. Reagents, laboratory analysers, and technical training.</p>
+        <div class="card-tags"><span>40+ Years</span><span>Lab Analysers</span><span>Reagent Distribution</span><span>Technical Training</span><span>Damascus</span></div>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- ======== EXPERIENCE ======== -->
+<!-- ======== CAREER ======== -->
 <section class="career" id="career">
   <div class="container">
-    <div class="sec-top" data-r>
-      <span class="sec-idx">03</span><span class="sec-line"></span><span class="sec-lbl">Career</span>
+    <div class="sec-header" data-r>
+      <span class="sec-num">03</span><span class="sec-rule"></span><span class="sec-title">Career</span>
     </div>
     <h2 class="sec-h" data-r>Professional experience</h2>
     <div class="exp-list">
@@ -224,8 +234,8 @@
 <!-- ======== EDUCATION ======== -->
 <section class="edu">
   <div class="container">
-    <div class="sec-top" data-r>
-      <span class="sec-idx">04</span><span class="sec-line"></span><span class="sec-lbl">Education</span>
+    <div class="sec-header" data-r>
+      <span class="sec-num">04</span><span class="sec-rule"></span><span class="sec-title">Education</span>
     </div>
     <div class="edu-row">
       <div class="edu-card glow-card" data-r><div class="glow-spot"></div><span class="edu-deg">MSc</span><h3>Clinical Biochemistry</h3><span class="edu-sch">University of Westminster</span><span class="edu-yr">Merit &middot; 2023—2024</span></div>
@@ -243,15 +253,15 @@
 <!-- ======== CONTACT ======== -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="sec-top" data-r>
-      <span class="sec-idx">05</span><span class="sec-line"></span><span class="sec-lbl">Contact</span>
+    <div class="sec-header" data-r>
+      <span class="sec-num">05</span><span class="sec-rule"></span><span class="sec-title">Contact</span>
     </div>
     <div class="cta-block">
       <h2 class="cta-h" data-r>
-        <span class="line-wrap"><span class="line-text">Let's build</span></span>
-        <span class="line-wrap"><span class="line-text">something great<span class="dot-accent">.</span></span></span>
+        <span class="cta-line">Let's build</span>
+        <span class="cta-line">something great<span class="accent-dot">.</span></span>
       </h2>
-      <p class="cta-p" data-r>Whether you need POCT consultancy, product strategy, or want to explore a collaboration.</p>
+      <p class="cta-desc" data-r>Whether you need POCT consultancy, product strategy, or want to explore a collaboration.</p>
       <a href="mailto:adnanalrefai@gmail.com" class="cta-email magnetic" data-r>
         <span>adnanalrefai@gmail.com</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
@@ -281,97 +291,319 @@
 <script>
 (function(){
 'use strict';
-const M=window.matchMedia,mob=M('(pointer:coarse)').matches,noMo=M('(prefers-reduced-motion:reduce)').matches;
+const isMob=matchMedia('(pointer:coarse)').matches,noMo=matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-/* ============ PRELOADER ============ */
+/* ==================================================================
+   WEBGL NAVIER-STOKES FLUID SIMULATION
+   ================================================================== */
+const SIM=128,DYE=512,PITER=30,CURL_STR=30,SPLAT_RAD=0.25,VEL_DISS=0.2,DEN_DISS=1.0,PRES_VAL=0.8,SPLAT_FORCE=6000;
+const fc=document.getElementById('fluid'),fb=document.getElementById('fluidFallback');
+let gl,isGL2=false,hfType,filt,fluidOK=false;
+
+function initFluid(){
+  if(noMo)return;
+  fc.width=fc.clientWidth;fc.height=fc.clientHeight;
+  const P={alpha:false,depth:false,stencil:false,antialias:false,preserveDrawingBuffer:false};
+  gl=fc.getContext('webgl2',P);isGL2=!!gl;
+  if(!gl)gl=fc.getContext('webgl',P)||fc.getContext('experimental-webgl',P);
+  if(!gl){fc.style.display='none';fb.style.display='block';return}
+  if(isGL2){gl.getExtension('EXT_color_buffer_float');filt=gl.getExtension('OES_texture_float_linear')?gl.LINEAR:gl.NEAREST;hfType=gl.HALF_FLOAT}
+  else{const hf=gl.getExtension('OES_texture_half_float');filt=gl.getExtension('OES_texture_half_float_linear')?gl.LINEAR:gl.NEAREST;hfType=hf?hf.HALF_FLOAT_OES:gl.UNSIGNED_BYTE}
+  if(!testRender()){hfType=gl.UNSIGNED_BYTE;filt=gl.LINEAR}
+  fluidOK=true;
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);gl.enableVertexAttribArray(0);
+  compilePrograms();initFBOs();
+}
+
+function testRender(){
+  const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const intFmt=isGL2?gl.RGBA16F:gl.RGBA;gl.texImage2D(gl.TEXTURE_2D,0,intFmt,4,4,0,gl.RGBA,hfType,null);
+  const f=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,f);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,t,0);
+  const ok=gl.checkFramebufferStatus(gl.FRAMEBUFFER)===gl.FRAMEBUFFER_COMPLETE;gl.deleteTexture(t);gl.deleteFramebuffer(f);return ok;
+}
+
+/* --- Shader sources --- */
+const baseVert=`precision highp float;attribute vec2 aPosition;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform vec2 texelSize;void main(){vUv=aPosition*.5+.5;vL=vUv-vec2(texelSize.x,0);vR=vUv+vec2(texelSize.x,0);vT=vUv+vec2(0,texelSize.y);vB=vUv-vec2(0,texelSize.y);gl_Position=vec4(aPosition,0,1);}`;
+const splatFrag=`precision highp float;varying vec2 vUv;uniform sampler2D uTarget;uniform float aspectRatio;uniform vec3 color;uniform vec2 point;uniform float radius;void main(){vec2 p=vUv-point;p.x*=aspectRatio;vec3 s=exp(-dot(p,p)/radius)*color;vec3 b=texture2D(uTarget,vUv).xyz;gl_FragColor=vec4(b+s,1);}`;
+const advectFrag=`precision highp float;varying vec2 vUv;uniform sampler2D uVelocity;uniform sampler2D uSource;uniform vec2 texelSize;uniform float dt;uniform float dissipation;void main(){vec2 c=vUv-dt*texture2D(uVelocity,vUv).xy*texelSize;vec4 r=texture2D(uSource,c);float d=1.0+dissipation*dt;gl_FragColor=r/d;}`;
+const curlFrag=`precision highp float;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform sampler2D uVelocity;void main(){float L=texture2D(uVelocity,vL).y;float R=texture2D(uVelocity,vR).y;float T=texture2D(uVelocity,vT).x;float B=texture2D(uVelocity,vB).x;float v=.5*(R-L-T+B);gl_FragColor=vec4(v,0,0,1);}`;
+const vortFrag=`precision highp float;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform sampler2D uVelocity;uniform sampler2D uCurl;uniform float curl;uniform float dt;void main(){float L=texture2D(uCurl,vL).x;float R=texture2D(uCurl,vR).x;float T=texture2D(uCurl,vT).x;float B=texture2D(uCurl,vB).x;float C=texture2D(uCurl,vUv).x;vec2 f=.5*vec2(abs(T)-abs(B),abs(R)-abs(L));f/=length(f)+1e-4;f*=curl*C;f.y*=-1.0;vec2 v=texture2D(uVelocity,vUv).xy;v+=f*dt;gl_FragColor=vec4(v,0,1);}`;
+const divFrag=`precision highp float;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform sampler2D uVelocity;void main(){float L=texture2D(uVelocity,vL).x;float R=texture2D(uVelocity,vR).x;float T=texture2D(uVelocity,vT).y;float B=texture2D(uVelocity,vB).y;float d=.5*(R-L+T-B);gl_FragColor=vec4(d,0,0,1);}`;
+const presFrag=`precision highp float;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform sampler2D uPressure;uniform sampler2D uDivergence;void main(){float L=texture2D(uPressure,vL).x;float R=texture2D(uPressure,vR).x;float T=texture2D(uPressure,vT).x;float B=texture2D(uPressure,vB).x;float d=texture2D(uDivergence,vUv).x;float p=(L+R+B+T-d)*.25;gl_FragColor=vec4(p,0,0,1);}`;
+const gradFrag=`precision highp float;varying vec2 vUv;varying vec2 vL,vR,vT,vB;uniform sampler2D uPressure;uniform sampler2D uVelocity;void main(){float L=texture2D(uPressure,vL).x;float R=texture2D(uPressure,vR).x;float T=texture2D(uPressure,vT).x;float B=texture2D(uPressure,vB).x;vec2 v=texture2D(uVelocity,vUv).xy;v.xy-=vec2(R-L,T-B);gl_FragColor=vec4(v,0,1);}`;
+const clearFrag=`precision highp float;varying vec2 vUv;uniform sampler2D uTexture;uniform float value;void main(){gl_FragColor=value*texture2D(uTexture,vUv);}`;
+const displayFrag=`precision highp float;varying vec2 vUv;uniform sampler2D uTexture;void main(){vec3 c=texture2D(uTexture,vUv).rgb;c=pow(c*1.15,vec3(.95));gl_FragColor=vec4(c,1);}`;
+
+/* --- Compile & link --- */
+let splatP,advectP,curlP,vortP,divP,presP,gradP,clearP,displayP;
+function comp(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s}
+function link(vs,fs){const p=gl.createProgram();gl.attachShader(p,vs);gl.attachShader(p,fs);gl.bindAttribLocation(p,0,'aPosition');gl.linkProgram(p);const u={},n=gl.getProgramParameter(p,gl.ACTIVE_UNIFORMS);for(let i=0;i<n;i++){const nm=gl.getActiveUniform(p,i).name;u[nm]=gl.getUniformLocation(p,nm)}return{p,u,bind(){gl.useProgram(p)}}}
+function compilePrograms(){
+  const vs=comp(gl.VERTEX_SHADER,baseVert);
+  splatP=link(vs,comp(gl.FRAGMENT_SHADER,splatFrag));
+  advectP=link(vs,comp(gl.FRAGMENT_SHADER,advectFrag));
+  curlP=link(vs,comp(gl.FRAGMENT_SHADER,curlFrag));
+  vortP=link(vs,comp(gl.FRAGMENT_SHADER,vortFrag));
+  divP=link(vs,comp(gl.FRAGMENT_SHADER,divFrag));
+  presP=link(vs,comp(gl.FRAGMENT_SHADER,presFrag));
+  gradP=link(vs,comp(gl.FRAGMENT_SHADER,gradFrag));
+  clearP=link(vs,comp(gl.FRAGMENT_SHADER,clearFrag));
+  displayP=link(vs,comp(gl.FRAGMENT_SHADER,displayFrag));
+}
+
+/* --- Framebuffer objects --- */
+let velocity,dye,curlFBO,divFBO,presFBO;
+function createFBO(w,h){
+  const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,filt);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,filt);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const intFmt=isGL2?gl.RGBA16F:gl.RGBA;gl.texImage2D(gl.TEXTURE_2D,0,intFmt,w,h,0,gl.RGBA,hfType,null);
+  const f=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,f);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,t,0);
+  gl.viewport(0,0,w,h);gl.clear(gl.COLOR_BUFFER_BIT);
+  return{texture:t,fbo:f,width:w,height:h,attach(id){gl.activeTexture(gl.TEXTURE0+id);gl.bindTexture(gl.TEXTURE_2D,t);return id}}
+}
+function createDFBO(w,h){
+  let a=createFBO(w,h),b=createFBO(w,h);
+  return{width:w,height:h,tsX:1/w,tsY:1/h,get read(){return a},get write(){return b},swap(){const t=a;a=b;b=t}}
+}
+function initFBOs(){velocity=createDFBO(SIM,SIM);dye=createDFBO(DYE,DYE);curlFBO=createFBO(SIM,SIM);divFBO=createFBO(SIM,SIM);presFBO=createDFBO(SIM,SIM)}
+
+function blit(target){
+  if(target){gl.viewport(0,0,target.width,target.height);gl.bindFramebuffer(gl.FRAMEBUFFER,target.fbo)}
+  else{gl.viewport(0,0,gl.drawingBufferWidth,gl.drawingBufferHeight);gl.bindFramebuffer(gl.FRAMEBUFFER,null)}
+  gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+}
+
+/* --- Simulation step --- */
+function simStep(dt){
+  curlP.bind();gl.uniform2f(curlP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(curlP.u.uVelocity,velocity.read.attach(0));blit(curlFBO);
+  vortP.bind();gl.uniform2f(vortP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(vortP.u.uVelocity,velocity.read.attach(0));gl.uniform1i(vortP.u.uCurl,curlFBO.attach(1));gl.uniform1f(vortP.u.curl,CURL_STR);gl.uniform1f(vortP.u.dt,dt);blit(velocity.write);velocity.swap();
+  divP.bind();gl.uniform2f(divP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(divP.u.uVelocity,velocity.read.attach(0));blit(divFBO);
+  clearP.bind();gl.uniform1i(clearP.u.uTexture,presFBO.read.attach(0));gl.uniform1f(clearP.u.value,PRES_VAL);blit(presFBO.write);presFBO.swap();
+  presP.bind();gl.uniform2f(presP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(presP.u.uDivergence,divFBO.attach(0));for(let i=0;i<PITER;i++){gl.uniform1i(presP.u.uPressure,presFBO.read.attach(1));blit(presFBO.write);presFBO.swap()}
+  gradP.bind();gl.uniform2f(gradP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(gradP.u.uPressure,presFBO.read.attach(0));gl.uniform1i(gradP.u.uVelocity,velocity.read.attach(1));blit(velocity.write);velocity.swap();
+  advectP.bind();gl.uniform2f(advectP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(advectP.u.uVelocity,velocity.read.attach(0));gl.uniform1i(advectP.u.uSource,velocity.read.attach(0));gl.uniform1f(advectP.u.dt,dt);gl.uniform1f(advectP.u.dissipation,VEL_DISS);blit(velocity.write);velocity.swap();
+  gl.uniform2f(advectP.u.texelSize,velocity.tsX,velocity.tsY);gl.uniform1i(advectP.u.uVelocity,velocity.read.attach(0));gl.uniform1i(advectP.u.uSource,dye.read.attach(1));gl.uniform1f(advectP.u.dissipation,DEN_DISS);blit(dye.write);dye.swap();
+}
+
+function render(){displayP.bind();gl.uniform1i(displayP.u.uTexture,dye.read.attach(0));blit(null)}
+
+function correctRad(r){const a=fc.width/fc.height;return a>1?r*a:r}
+function doSplat(x,y,dx,dy,color){
+  splatP.bind();gl.uniform1i(splatP.u.uTarget,velocity.read.attach(0));gl.uniform1f(splatP.u.aspectRatio,fc.width/fc.height);
+  gl.uniform2f(splatP.u.point,x,y);gl.uniform3f(splatP.u.color,dx,dy,0);gl.uniform1f(splatP.u.radius,correctRad(SPLAT_RAD/100));blit(velocity.write);velocity.swap();
+  gl.uniform1i(splatP.u.uTarget,dye.read.attach(0));gl.uniform3f(splatP.u.color,color.r,color.g,color.b);blit(dye.write);dye.swap();
+}
+function rndColor(){
+  const cs=[[.4,.4,1],[.7,.3,1],[.12,.82,.92],[.3,.55,1],[.55,.2,.9]];
+  const c=cs[Math.random()*cs.length|0];return{r:c[0]*.35,g:c[1]*.35,b:c[2]*.35}
+}
+function autoSplat(){doSplat(Math.random(),Math.random(),(Math.random()-.5)*600,(Math.random()-.5)*600,rndColor())}
+
+/* --- Mouse/touch input --- */
+let fMX=0,fMY=0,fPX=0,fPY=0,fDown=false;
+function onPointerMove(x,y){
+  fPX=fMX;fPY=fMY;fMX=x/fc.width;fMY=1-y/fc.height;
+  const dx=(fMX-fPX)*SPLAT_FORCE,dy=(fMY-fPY)*SPLAT_FORCE;
+  doSplat(fMX,fMY,dx,dy,rndColor());
+}
+if(!isMob){
+  fc.addEventListener('mousemove',e=>{const r=fc.getBoundingClientRect();onPointerMove(e.clientX-r.left,e.clientY-r.top)});
+}
+fc.addEventListener('touchmove',e=>{e.preventDefault();const t=e.touches[0],r=fc.getBoundingClientRect();onPointerMove(t.clientX-r.left,t.clientY-r.top)},{passive:false});
+
+/* --- Fluid loop --- */
+let fluidLastT=Date.now();
+function fluidLoop(){
+  if(!fluidOK)return;
+  const now=Date.now();let dt=Math.min((now-fluidLastT)/1e3,.016667);fluidLastT=now;
+  simStep(dt);render();requestAnimationFrame(fluidLoop);
+}
+function resizeFluid(){fc.width=fc.clientWidth;fc.height=fc.clientHeight}
+
+/* --- Init fluid --- */
+initFluid();
+if(fluidOK){
+  window.addEventListener('resize',resizeFluid);
+  fluidLoop();
+  setInterval(autoSplat,isMob?400:2500);
+  if(isMob)setTimeout(()=>{for(let i=0;i<5;i++)setTimeout(autoSplat,i*150)},300);
+}
+
+/* ==================================================================
+   PRELOADER
+   ================================================================== */
 const loader=document.getElementById('loader'),lCount=document.getElementById('loaderCount'),lFill=document.getElementById('loaderFill');
 let pct=0,loadDone=false;
 window.addEventListener('load',()=>{loadDone=true});
 (function tick(){
-  const target=loadDone?100:Math.min(pct+Math.random()*12+2,92);
-  pct+=(target-pct)*0.3;
-  if(loadDone)pct+=(100-pct)*0.3;
-  lCount.textContent=Math.round(pct);
-  lFill.style.width=pct+'%';
-  if(pct>=99.5){
-    lCount.textContent='100';lFill.style.width='100%';
+  const tgt=loadDone?100:Math.min(pct+Math.random()*12+2,92);
+  pct+=(tgt-pct)*.3;if(loadDone)pct+=(100-pct)*.3;
+  lCount.textContent=Math.round(pct);lFill.style.width=pct+'%';
+  if(pct>=99.5){lCount.textContent='100';lFill.style.width='100%';
     setTimeout(()=>{loader.classList.add('loader--go');document.body.classList.add('is-ready');fireHeroReveal()},300);
-    setTimeout(()=>{loader.style.display='none'},1200);
-    return;
-  }
+    setTimeout(()=>{loader.style.display='none'},1200);return}
   requestAnimationFrame(tick);
 })();
 
-/* ============ CURSOR ============ */
-const ring=document.getElementById('cRing'),dot=document.getElementById('cDot');
-let cmx=-100,cmy=-100,crx=-100,cry=-100,cdx=-100,cdy=-100;
-if(!mob){
-  document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY});
-  const sel='a,button,.magnetic,.glow-card,.dev-tags span,.proj-domains a';
-  document.addEventListener('mouseover',e=>{if(e.target.closest(sel)){ring.classList.add('c-on');dot.classList.add('c-on')}});
-  document.addEventListener('mouseout',e=>{if(e.target.closest(sel)){ring.classList.remove('c-on');dot.classList.remove('c-on')}});
-  (function ac(){crx+=(cmx-crx)*0.07;cry+=(cmy-cry)*0.07;cdx+=(cmx-cdx)*0.22;cdy+=(cmy-cdy)*0.22;ring.style.transform=`translate(${crx}px,${cry}px)`;dot.style.transform=`translate(${cdx}px,${cdy}px)`;requestAnimationFrame(ac)})();
-}else{ring.style.display=dot.style.display='none'}
+/* ==================================================================
+   CURSOR TRAIL (8 dots)
+   ================================================================== */
+let mx=-100,my=-100;
+const trailEls=document.querySelectorAll('.trail-dot');
+const trail=Array.from(trailEls).map((el,i)=>({el,x:-100,y:-100,s:20-i*2,lerp:.3-i*.033}));
+if(!isMob&&!noMo){
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  const interSel='a,button,.magnetic,.glow-card,.dev-tags span,.card-domains a,.chip';
+  document.addEventListener('mouseover',e=>{if(e.target.closest(interSel))document.body.classList.add('trail-hover')});
+  document.addEventListener('mouseout',e=>{if(e.target.closest(interSel))document.body.classList.remove('trail-hover')});
+  (function animTrail(){
+    let px=mx,py=my;
+    trail.forEach(d=>{d.x+=(px-d.x)*d.lerp;d.y+=(py-d.y)*d.lerp;d.el.style.transform=`translate(${d.x-d.s/2}px,${d.y-d.s/2}px)`;px=d.x;py=d.y});
+    requestAnimationFrame(animTrail)})();
+}else{document.getElementById('trail').style.display='none'}
 
-/* ============ SCROLL PROGRESS ============ */
+/* ==================================================================
+   CHARACTER-SPLIT HERO WITH SPRING PHYSICS
+   ================================================================== */
+const chars=[];
+document.querySelectorAll('.name-row').forEach((row,ri)=>{
+  const text=row.textContent;row.textContent='';row.setAttribute('aria-hidden','true');
+  const offset=ri===0?0:5;
+  text.split('').forEach((ch,ci)=>{
+    const span=document.createElement('span');span.className='char';span.textContent=ch;
+    span.style.setProperty('--d',offset+ci);row.appendChild(span);
+    chars.push({el:span,x:0,y:0,vx:0,vy:0,ox:0,oy:0});
+  });
+});
+function cacheCharPos(){
+  chars.forEach(c=>{const r=c.el.getBoundingClientRect();c.ox=r.left+r.width/2;c.oy=r.top+r.height/2+window.scrollY});
+}
+let charInited=false;
+function initChars(){if(charInited)return;charInited=true;cacheCharPos();window.addEventListener('resize',cacheCharPos)}
+
+if(!isMob&&!noMo){
+  const hero=document.getElementById('hero');
+  let heroMX=-9e3,heroMY=-9e3;
+  hero.addEventListener('mousemove',e=>{heroMX=e.clientX;heroMY=e.clientY});
+  hero.addEventListener('mouseleave',()=>{heroMX=-9e3;heroMY=-9e3});
+  (function charLoop(){
+    if(!charInited){requestAnimationFrame(charLoop);return}
+    const sy=window.scrollY;
+    chars.forEach(c=>{
+      const dx=c.ox-heroMX,dy=c.oy-sy-heroMY,dist=Math.sqrt(dx*dx+dy*dy);
+      let fx=0,fy=0;
+      if(dist<180&&dist>0){const f=(180-dist)/180*25;fx=dx/dist*f;fy=dy/dist*f}
+      c.vx=(c.vx+fx)*.82-c.x*.04;c.vy=(c.vy+fy)*.82-c.y*.04;
+      c.x+=c.vx;c.y+=c.vy;
+      c.el.style.transform=`translate(${c.x}px,${c.y}px)`;
+    });
+    requestAnimationFrame(charLoop);
+  })();
+}
+
+/* ==================================================================
+   SCROLL-LINKED COLOR SHIFT
+   ================================================================== */
+const colorStops=[
+  {pos:0,h:239,s:84,l:67},     // indigo
+  {pos:.22,h:187,s:78,l:55},   // cyan
+  {pos:.45,h:38,s:92,l:50},    // amber
+  {pos:.7,h:217,s:91,l:60},    // blue
+  {pos:1,h:271,s:91,l:65}      // purple
+];
+function lerpHSL(t){
+  let i=0;for(let j=1;j<colorStops.length;j++){if(t<=colorStops[j].pos){i=j-1;break}if(j===colorStops.length-1)i=j-1}
+  const a=colorStops[i],b=colorStops[i+1];
+  const f=(t-a.pos)/(b.pos-a.pos);
+  return`hsl(${a.h+(b.h-a.h)*f},${a.s+(b.s-a.s)*f}%,${a.l+(b.l-a.l)*f}%)`
+}
+function updateAccent(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  const t=h>0?scrollY/h:0;
+  document.documentElement.style.setProperty('--ac',lerpHSL(t));
+}
+window.addEventListener('scroll',updateAccent,{passive:true});
+
+/* ==================================================================
+   SCROLL PROGRESS
+   ================================================================== */
 const pBar=document.getElementById('progressBar');
-function updProgress(){const h=document.documentElement.scrollHeight-innerHeight;pBar.style.width=(h>0?(scrollY/h)*100:0)+'%'}
-window.addEventListener('scroll',updProgress,{passive:true});
+function updProg(){const h=document.documentElement.scrollHeight-innerHeight;pBar.style.width=(h>0?(scrollY/h)*100:0)+'%'}
+window.addEventListener('scroll',updProg,{passive:true});
 
-/* ============ NAV ============ */
+/* ==================================================================
+   NAV
+   ================================================================== */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('nav--s',scrollY>80)},{passive:true});
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})}));
 
-/* ============ PARTICLE CANVAS ============ */
-const cv=document.getElementById('heroCanvas'),cx=cv.getContext('2d');
-let W,H,pts=[],mpc={x:-9e3,y:-9e3};
-function szCanvas(){const h=document.getElementById('hero');W=cv.width=h.offsetWidth;H=cv.height=h.offsetHeight}
-class P{constructor(){this.reset()}
-reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.r=Math.random()*1.4+.4;this.a=Math.random()*.3+.08}
-update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1;const dx=this.x-mpc.x,dy=this.y-mpc.y,d=Math.hypot(dx,dy);if(d<140){const f=(140-d)/140*.6;this.vx+=dx/d*f;this.vy+=dy/d*f}this.vx*=.992;this.vy*=.992}
-draw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,6.283);cx.fillStyle=`rgba(99,102,241,${this.a})`;cx.fill()}}
-function initP(){szCanvas();pts=[];const n=Math.min(Math.floor(W*H/9000),100);for(let i=0;i<n;i++)pts.push(new P())}
-function drawP(){cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++){pts[i].update();pts[i].draw();for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d2=dx*dx+dy*dy;if(d2<16900){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(99,102,241,${.06*(1-d2/16900)})`;cx.lineWidth=.5;cx.stroke()}}}requestAnimationFrame(drawP)}
-if(!noMo){initP();drawP();window.addEventListener('resize',()=>szCanvas());cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mpc.x=e.clientX-r.left;mpc.y=e.clientY-r.top});cv.addEventListener('mouseleave',()=>{mpc.x=-9e3;mpc.y=-9e3})}
-
-/* ============ REVEALS ============ */
-function fireHeroReveal(){document.querySelectorAll('.hero [data-r]').forEach(el=>{const d=parseFloat(el.dataset.d||0);setTimeout(()=>el.classList.add('is-v'),d*1000)})}
+/* ==================================================================
+   REVEALS (IntersectionObserver)
+   ================================================================== */
+function fireHeroReveal(){
+  document.querySelectorAll('.hero [data-r]').forEach(el=>{const d=parseFloat(el.dataset.d||0);setTimeout(()=>el.classList.add('is-v'),d*1e3)});
+  setTimeout(initChars,600);
+}
 if(!noMo){
-  const rObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const d=parseFloat(e.target.dataset.d||0);setTimeout(()=>e.target.classList.add('is-v'),d*1000);rObs.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -50px 0px'});
+  const rObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const d=parseFloat(e.target.dataset.d||0);setTimeout(()=>e.target.classList.add('is-v'),d*1e3);rObs.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -50px 0px'});
   document.querySelectorAll('[data-r]:not(.hero [data-r])').forEach(el=>rObs.observe(el));
-}else{document.querySelectorAll('[data-r]').forEach(el=>el.classList.add('is-v'))}
+}else{document.querySelectorAll('[data-r]').forEach(el=>el.classList.add('is-v'));initChars()}
 
-/* ============ COUNTERS ============ */
+/* ==================================================================
+   COUNTERS
+   ================================================================== */
 const cObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,tgt=+el.dataset.count,suf=el.dataset.suf||'',st=performance.now();
 (function tk(now){const p=Math.min((now-st)/2200,1),ez=1-Math.pow(1-p,4),v=Math.round(ez*tgt);el.textContent=tgt>=1e4?(v/1e3).toFixed(v>=tgt?0:1)+'K'+suf:v.toLocaleString()+suf;if(p<1)requestAnimationFrame(tk)})(performance.now());cObs.unobserve(el)})},{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
-/* ============ MAGNETIC ============ */
-if(!mob){document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;el.style.transform=`translate(${(e.clientX-cx)*.25}px,${(e.clientY-cy)*.25}px)`});el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.transition='transform .5s cubic-bezier(.22,1,.36,1)';setTimeout(()=>el.style.transition='',500)})})}
+/* ==================================================================
+   MAGNETIC ELEMENTS
+   ================================================================== */
+if(!isMob){document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;el.style.transform=`translate(${(e.clientX-cx)*.25}px,${(e.clientY-cy)*.25}px)`});el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.transition='transform .5s cubic-bezier(.22,1,.36,1)';setTimeout(()=>el.style.transition='',500)})})}
 
-/* ============ GLOW SPOTLIGHT ============ */
-if(!mob){document.querySelectorAll('.glow-card').forEach(c=>{const s=c.querySelector('.glow-spot');if(!s)return;c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';s.style.opacity='1'});c.addEventListener('mouseleave',()=>{s.style.opacity='0'})})}
+/* ==================================================================
+   GLOW SPOTLIGHT
+   ================================================================== */
+if(!isMob){document.querySelectorAll('.glow-card').forEach(c=>{const s=c.querySelector('.glow-spot');if(!s)return;c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';s.style.opacity='1'});c.addEventListener('mouseleave',()=>{s.style.opacity='0'})})}
 
-/* ============ TEXT SCRAMBLE ============ */
-const scEl=document.getElementById('scramble');
+/* ==================================================================
+   TEXT SCRAMBLE
+   ================================================================== */
+const scEl=document.getElementById('roleText');
 const roles=['Product Growth Specialist','HealthTech Founder','POCT Platform Architect','Clinical Biochemist','Full-Stack Developer'];
 const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!<>-_\\/[]{}—=+*^?#';
 let rIdx=0;
 function scramble(txt){let fr=0;const len=Math.max(scEl.textContent.length,txt.length);const iv=setInterval(()=>{let o='';for(let i=0;i<len;i++){o+=i<fr?txt[i]||'':i<txt.length?glyphs[Math.random()*glyphs.length|0]:''}scEl.textContent=o;fr+=1.4;if(fr>=len+3){scEl.textContent=txt;clearInterval(iv)}},25)}
 setInterval(()=>{rIdx=(rIdx+1)%roles.length;scramble(roles[rIdx])},3500);
 
-/* ============ PARALLAX ============ */
-if(!mob&&!noMo){
-  const pEls=document.querySelectorAll('[data-parallax]');
-  window.addEventListener('scroll',()=>{const sy=scrollY;pEls.forEach(el=>{const spd=parseFloat(el.dataset.parallax);el.style.transform=`translateY(${sy*spd/100}px)`})},{passive:true});
+/* ==================================================================
+   STACKING CARDS — scale/dim effect on scroll
+   ================================================================== */
+const stackCards=document.querySelectorAll('.stack-card');
+function updateStack(){
+  stackCards.forEach((card,i)=>{
+    const r=card.getBoundingClientRect();const topOff=80+i*30;
+    const next=stackCards[i+1];
+    if(next){const nr=next.getBoundingClientRect();const overlap=Math.max(0,topOff+r.height-nr.top);const p=Math.min(1,overlap/r.height);
+    card.style.transform=`scale(${1-p*.04})`;card.style.filter=`brightness(${1-p*.2})`}
+  });
+}
+window.addEventListener('scroll',updateStack,{passive:true});
+
+/* ==================================================================
+   VELOCITY SKEW
+   ================================================================== */
+if(!isMob&&!noMo){
+  let lsy=0,skewing=false;
+  window.addEventListener('scroll',()=>{if(!skewing){requestAnimationFrame(()=>{const vel=scrollY-lsy;lsy=scrollY;const s=Math.max(-2.5,Math.min(2.5,vel*.03));
+  document.querySelectorAll('.stack-card,.exp').forEach(el=>{el.style.transform=`skewY(${s}deg)`});
+  setTimeout(()=>{document.querySelectorAll('.stack-card,.exp').forEach(el=>{el.style.transform=''})},120);skewing=false});skewing=true}},{passive:true});
 }
 
-/* ============ VELOCITY SKEW ============ */
-if(!mob&&!noMo){
-  let lsy=0,vel=0,skewing=false;
-  window.addEventListener('scroll',()=>{if(!skewing){requestAnimationFrame(()=>{vel=scrollY-lsy;lsy=scrollY;const s=Math.max(-2.5,Math.min(2.5,vel*.03));document.querySelectorAll('.proj,.exp').forEach(el=>{el.style.transform=`skewY(${s}deg)`});setTimeout(()=>{document.querySelectorAll('.proj,.exp').forEach(el=>{el.style.transform=''})},120);skewing=false});skewing=true}},{passive:true});
-}
 })();
 </script>
 </body>
