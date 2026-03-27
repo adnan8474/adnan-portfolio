@@ -21,44 +21,9 @@
   <meta name="twitter:title" content="Adnan Alrefai — Healthcare Technology & Product Innovation">
   <meta name="twitter:description" content="Product Growth Specialist. Founder of POCTIFY & Sihtak. MSc Clinical Biochemistry. NHS POCT deployments. Based in London.">
   <meta name="twitter:image" content="https://www.adnanalrefai.net/images/adnan.png">
-  <meta name="theme-color" content="#050505">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Adnan Alrefai",
-    "jobTitle": "Product Growth & Innovation Specialist",
-    "worksFor": { "@type": "Organization", "name": "Citizen Care Health Solutions" },
-    "alumniOf": [
-      { "@type": "CollegeOrUniversity", "name": "University of Westminster" },
-      { "@type": "CollegeOrUniversity", "name": "University of Roehampton" }
-    ],
-    "knowsLanguage": ["English", "Arabic"],
-    "url": "https://www.adnanalrefai.net",
-    "email": "adnanalrefai@gmail.com",
-    "telephone": "+447446668474",
-    "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "UK" },
-    "image": "https://www.adnanalrefai.net/images/adnan.png",
-    "sameAs": [
-      "https://www.linkedin.com/in/adnanalrefai",
-      "https://poctify.com",
-      "https://sihtak.com",
-      "https://syrianagency.com"
-    ],
-    "description": "Healthcare technology specialist with MSc Clinical Biochemistry. Founder of POCTIFY Ltd and Sihtak. Experience deploying POCT platforms across NHS hospital networks."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Adnan Alrefai",
-    "url": "https://www.adnanalrefai.net",
-    "description": "Portfolio of Adnan Alrefai — Healthcare Technology & Product Innovation Specialist"
-  }
-  </script>
-
+  <meta name="theme-color" content="#030303">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Adnan Alrefai","jobTitle":"Product Growth & Innovation Specialist","worksFor":{"@type":"Organization","name":"Citizen Care Health Solutions"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Westminster"},{"@type":"CollegeOrUniversity","name":"University of Roehampton"}],"knowsLanguage":["English","Arabic"],"url":"https://www.adnanalrefai.net","email":"adnanalrefai@gmail.com","telephone":"+447446668474","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"UK"},"image":"https://www.adnanalrefai.net/images/adnan.png","sameAs":["https://www.linkedin.com/in/adnanalrefai","https://poctify.com","https://sihtak.com","https://syrianagency.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Adnan Alrefai","url":"https://www.adnanalrefai.net"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,765 +31,348 @@
 </head>
 <body>
 
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-text">
-      <span class="pre-line">ADNAN</span>
-      <span class="pre-line">ALREFAI</span>
-    </div>
-    <div class="preloader-bar"><div class="preloader-fill"></div></div>
+<!-- ======== PRELOADER ======== -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-count" id="loaderCount">0</div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-name">ADNAN ALREFAI</div>
   </div>
+</div>
 
-  <!-- Cursor -->
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
+<!-- ======== CURSOR ======== -->
+<div class="cur cur-ring" id="cRing"></div>
+<div class="cur cur-dot" id="cDot"></div>
 
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+<!-- ======== PROGRESS ======== -->
+<div class="progress-bar" id="progressBar"></div>
 
-  <!-- Noise -->
-  <div class="noise"></div>
+<!-- ======== NOISE ======== -->
+<div class="grain"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-brand">
-        <span class="brand-a">A</span><span class="brand-dot">.</span><span class="brand-a">A</span>
+<!-- ======== NAV ======== -->
+<nav class="nav" id="nav">
+  <div class="nav-w">
+    <a href="/" class="logo">A<span class="logo-dot">.</span>A</a>
+    <div class="nav-mid">
+      <a href="#about" class="nl">About</a>
+      <a href="#work" class="nl">Work</a>
+      <a href="#career" class="nl">Career</a>
+      <a href="#contact" class="nl">Contact</a>
+    </div>
+    <a href="mailto:adnanalrefai@gmail.com" class="nav-btn magnetic">
+      <span>Let's Talk</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+  </div>
+</nav>
+
+<main id="smooth">
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-grid">
+    <div class="hero-col-l">
+      <div class="hero-tag" data-r><span class="tag-pulse"></span>Available for opportunities</div>
+      <h1 class="hero-h">
+        <span class="line-wrap" data-r data-d="0.05"><span class="line-text" data-parallax="-30">ADNAN</span></span>
+        <span class="line-wrap" data-r data-d="0.15"><span class="line-text" data-parallax="-20">ALREFAI</span></span>
+      </h1>
+      <div class="hero-sub" data-r data-d="0.3">
+        <span class="sub-dash"></span>
+        <span id="scramble" class="scramble-text">Product Growth Specialist</span>
+      </div>
+      <p class="hero-p" data-r data-d="0.4">Building the future of diagnostic healthcare.<br>Deploying POCT platforms across NHS hospitals and founding HealthTech ventures serving thousands of clinical professionals.</p>
+      <div class="hero-btns" data-r data-d="0.5">
+        <a href="#work" class="btn-fill magnetic"><span>Selected Work</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+        <a href="#contact" class="btn-line magnetic"><span>Contact</span></a>
+      </div>
+    </div>
+    <div class="hero-col-r" data-r data-d="0.2">
+      <div class="img-wrap">
+        <div class="img-border"></div>
+        <div class="img-border img-border-2"></div>
+        <div class="img-glow"></div>
+        <div class="img-clip">
+          <img src="/images/adnan.png" alt="Adnan Alrefai" width="360" height="450">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-counters">
+    <div class="hc" data-r data-d="0.6"><span class="hc-n" data-count="7">0</span><span class="hc-l">NHS Hospitals</span></div>
+    <div class="hc" data-r data-d="0.65"><span class="hc-n" data-count="10000" data-suf="+">0</span><span class="hc-l">Clinical Users</span></div>
+    <div class="hc" data-r data-d="0.7"><span class="hc-n" data-count="10">0</span><span class="hc-l">SaaS Platforms</span></div>
+    <div class="hc" data-r data-d="0.75"><span class="hc-n" data-count="321" data-suf="+">0</span><span class="hc-l">API Endpoints</span></div>
+  </div>
+  <div class="scroll-cue" data-r data-d="1"><div class="scroll-cue-line"></div>Scroll</div>
+</section>
+
+<!-- ======== MARQUEE ======== -->
+<div class="tape">
+  <div class="tape-row"><div class="tape-track"><span>HL7</span><span class="sep">&mdash;</span><span>FHIR</span><span class="sep">&mdash;</span><span>React Native</span><span class="sep">&mdash;</span><span>FastAPI</span><span class="sep">&mdash;</span><span>Azure</span><span class="sep">&mdash;</span><span>Python</span><span class="sep">&mdash;</span><span>ISO 15189</span><span class="sep">&mdash;</span><span>POCT</span><span class="sep">&mdash;</span><span>AI / ML</span><span class="sep">&mdash;</span><span>TypeScript</span><span class="sep">&mdash;</span><span>EHR Integration</span><span class="sep">&mdash;</span><span>Middleware</span><span class="sep">&mdash;</span><span>SQL</span><span class="sep">&mdash;</span><span>DevOps</span><span class="sep">&mdash;</span><span>Clinical Biochemistry</span><span class="sep">&mdash;</span><span>HL7</span><span class="sep">&mdash;</span><span>FHIR</span><span class="sep">&mdash;</span><span>React Native</span><span class="sep">&mdash;</span><span>FastAPI</span><span class="sep">&mdash;</span><span>Azure</span><span class="sep">&mdash;</span><span>Python</span><span class="sep">&mdash;</span><span>ISO 15189</span><span class="sep">&mdash;</span><span>POCT</span><span class="sep">&mdash;</span><span>AI / ML</span><span class="sep">&mdash;</span><span>TypeScript</span><span class="sep">&mdash;</span><span>EHR Integration</span><span class="sep">&mdash;</span><span>Middleware</span><span class="sep">&mdash;</span><span>SQL</span><span class="sep">&mdash;</span><span>DevOps</span><span class="sep">&mdash;</span><span>Clinical Biochemistry</span><span class="sep">&mdash;</span></div></div>
+  <div class="tape-row tape-row--rev"><div class="tape-track"><span>Quality Management</span><span class="sep">&mdash;</span><span>EQA Analytics</span><span class="sep">&mdash;</span><span>Device Connectivity</span><span class="sep">&mdash;</span><span>SaaS Architecture</span><span class="sep">&mdash;</span><span>Product Strategy</span><span class="sep">&mdash;</span><span>B2B Sales</span><span class="sep">&mdash;</span><span>NHS Deployment</span><span class="sep">&mdash;</span><span>UKAS</span><span class="sep">&mdash;</span><span>Expo</span><span class="sep">&mdash;</span><span>REST APIs</span><span class="sep">&mdash;</span><span>Node.js</span><span class="sep">&mdash;</span><span>Data Pipelines</span><span class="sep">&mdash;</span><span>Quality Management</span><span class="sep">&mdash;</span><span>EQA Analytics</span><span class="sep">&mdash;</span><span>Device Connectivity</span><span class="sep">&mdash;</span><span>SaaS Architecture</span><span class="sep">&mdash;</span><span>Product Strategy</span><span class="sep">&mdash;</span><span>B2B Sales</span><span class="sep">&mdash;</span><span>NHS Deployment</span><span class="sep">&mdash;</span><span>UKAS</span><span class="sep">&mdash;</span><span>Expo</span><span class="sep">&mdash;</span><span>REST APIs</span><span class="sep">&mdash;</span><span>Node.js</span><span class="sep">&mdash;</span><span>Data Pipelines</span><span class="sep">&mdash;</span></div></div>
+</div>
+
+<!-- ======== ABOUT ======== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="sec-top" data-r>
+      <span class="sec-idx">01</span><span class="sec-line"></span><span class="sec-lbl">About</span>
+    </div>
+    <div class="about-split">
+      <h2 class="about-h" data-r>Where clinical science<br>meets product<br>innovation<span class="dot-accent">.</span></h2>
+      <div class="about-right" data-r data-d="0.15">
+        <p>I combine deep clinical expertise with modern software engineering to build healthcare platforms that actually work — from HL7/FHIR integrations to full-stack SaaS products serving thousands of NHS professionals.</p>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="bento-card glow-card" data-r>
+        <div class="glow-spot"></div>
+        <div class="bc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Healthcare IT</h3>
+        <p>HL7 messaging, FHIR APIs, EHR/LIS integration, POCT middleware, diagnostic data pipelines, device interfacing.</p>
+      </div>
+      <div class="bento-card glow-card" data-r data-d="0.05">
+        <div class="glow-spot"></div>
+        <div class="bc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <h3>Diagnostics & Quality</h3>
+        <p>15+ POCT devices, IQC/EQA analysis, ISO 15189:2022, UKAS accreditation, device validation.</p>
+      </div>
+      <div class="bento-card glow-card" data-r data-d="0.1">
+        <div class="glow-spot"></div>
+        <div class="bc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Product & Commercial</h3>
+        <p>Strategy & roadmaps, go-to-market, B2B sales, partnerships, stakeholder engagement.</p>
+      </div>
+      <div class="bento-card glow-card" data-r data-d="0.15">
+        <div class="glow-spot"></div>
+        <div class="bc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Full-Stack Dev</h3>
+        <p>React Native, FastAPI, Azure cloud, SQL databases, SaaS architecture, CI/CD.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PROJECTS ======== -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="sec-top" data-r>
+      <span class="sec-idx">02</span><span class="sec-line"></span><span class="sec-lbl">Selected Work</span>
+    </div>
+
+    <article class="proj glow-card" data-r>
+      <div class="glow-spot"></div>
+      <div class="proj-head">
+        <div class="proj-brand"><img src="/images/poctify-logo.png" alt="" class="proj-logo"><div><span class="proj-cat">Founder &middot; HealthTech SaaS</span><h3 class="proj-name">POCTIFY</h3></div></div>
+        <a href="https://poctify.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+      </div>
+      <p class="proj-desc">A comprehensive Point-of-Care Testing platform with 10 live SaaS products, a mobile app, and 321+ API endpoints. Serving NHS trusts with AI-powered POCT governance, compliance automation, and analytics.</p>
+      <div class="proj-tags"><span>AI QMS</span><span>EQA Analytics</span><span>Middleware</span><span>ISO 15189</span><span>React Native</span><span>FastAPI</span><span>Azure</span><span>321+ Endpoints</span></div>
+      <div class="proj-domains">
+        <a href="https://poctify.com" target="_blank" rel="noopener">poctify.com</a>
+        <a href="https://interactive.poctify.com" target="_blank" rel="noopener">interactive.poctify.com</a>
+        <a href="https://qms.poctify.com" target="_blank" rel="noopener">qms.poctify.com</a>
+        <a href="https://eqa.poctify.com" target="_blank" rel="noopener">eqa.poctify.com</a>
+        <a href="https://ai.poctify.com" target="_blank" rel="noopener">ai.poctify.com</a>
+        <a href="https://codeshare.poctify.com" target="_blank" rel="noopener">codeshare.poctify.com</a>
+      </div>
+    </article>
+
+    <article class="proj glow-card" data-r>
+      <div class="glow-spot"></div>
+      <div class="proj-head">
+        <div class="proj-brand"><img src="/images/sihtak-logo.png" alt="" class="proj-logo proj-logo--rnd"><div><span class="proj-cat">Founder &middot; AI Health App</span><h3 class="proj-name">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3></div></div>
+        <a href="https://sihtak.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+      </div>
+      <p class="proj-desc">A free AI-powered health companion with 74 screens and 175 API endpoints. Voice AI chat, lab scanner OCR, medication tracking, nutrition, exercise, sleep & period tracking, family circles, and a PDF health passport. Fully bilingual Arabic/English.</p>
+      <div class="proj-tags"><span>AI Voice Chat</span><span>Lab Scanner</span><span>Medication Tracker</span><span>74 Screens</span><span>React Native</span><span>FastAPI</span><span>Arabic/English</span></div>
+    </article>
+
+    <article class="proj glow-card" data-r>
+      <div class="glow-spot"></div>
+      <div class="proj-head">
+        <div class="proj-brand"><img src="/images/syrian-agency-logo.png" alt="" class="proj-logo"><div><span class="proj-cat">Family Business &middot; Since 1987</span><h3 class="proj-name">Syrian Agency</h3></div></div>
+        <a href="https://syrianagency.com" target="_blank" rel="noopener" class="proj-arrow magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
+      </div>
+      <p class="proj-desc">A clinical diagnostics distribution company established in 1987 in Damascus. 40+ years connecting global diagnostic manufacturers with healthcare providers. Reagents, laboratory analysers, and technical training.</p>
+      <div class="proj-tags"><span>40+ Years</span><span>Lab Analysers</span><span>Reagent Distribution</span><span>Technical Training</span><span>Damascus</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ======== EXPERIENCE ======== -->
+<section class="career" id="career">
+  <div class="container">
+    <div class="sec-top" data-r>
+      <span class="sec-idx">03</span><span class="sec-line"></span><span class="sec-lbl">Career</span>
+    </div>
+    <h2 class="sec-h" data-r>Professional experience</h2>
+    <div class="exp-list">
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">Nov 2025 — Present</span></div><div class="exp-r"><h3>Product Growth & Innovation Specialist</h3><span class="exp-where">Citizen Care Health Solutions</span><p>Driving product growth for Citizen Care Connect — device-agnostic POCT middleware. Leading client onboarding for NHS trusts and pre-sales across UK, EU, and North America.</p></div></div>
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">Jan 2025 — Present</span></div><div class="exp-r"><h3>Founder & Consultant</h3><span class="exp-where">POCTIFY Ltd</span><p>Built 10 live SaaS platforms for POCT governance — AI-powered QMS, EQA analytics, operator monitoring. Consultancy to NHS trusts and device manufacturers.</p></div></div>
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">May — Nov 2025</span></div><div class="exp-r"><h3>POCT Specialist</h3><span class="exp-where">Royal Free London NHS Trust &middot; Band 5</span><p>Competency training for 15+ devices. Middleware integrations to LIS/EHR. IQC/EQA and ISO 15189:2022 compliance.</p></div></div>
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">Feb 2024 — May 2025</span></div><div class="exp-r"><h3>POCT Associate</h3><span class="exp-where">North West London Pathology &middot; NHS Band 4</span><p>Deployed POCT analysers across 7 hospitals. Built tracking systems reducing reporting by ~40%. Onboarded 10,000+ users.</p></div></div>
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">Feb 2020 — Aug 2024</span></div><div class="exp-r"><h3>Sales Manager — Medical Technology</h3><span class="exp-where">LaboTest Ltd</span><p>B2B sales strategy for medical devices, CRM lifecycle, WooCommerce operations.</p></div></div>
+      <div class="exp" data-r><div class="exp-l"><span class="exp-when">2018 — 2024</span></div><div class="exp-r"><h3>Sales & Technical Support</h3><span class="exp-where">Syrian Agency &middot; Damascus</span><p>Remote support for 20+ international device manufacturers. Global supplier relationships in laboratory diagnostics. Family business since 1987.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== EDUCATION ======== -->
+<section class="edu">
+  <div class="container">
+    <div class="sec-top" data-r>
+      <span class="sec-idx">04</span><span class="sec-line"></span><span class="sec-lbl">Education</span>
+    </div>
+    <div class="edu-row">
+      <div class="edu-card glow-card" data-r><div class="glow-spot"></div><span class="edu-deg">MSc</span><h3>Clinical Biochemistry</h3><span class="edu-sch">University of Westminster</span><span class="edu-yr">Merit &middot; 2023—2024</span></div>
+      <div class="edu-card glow-card" data-r data-d="0.08"><div class="glow-spot"></div><span class="edu-deg">BSc</span><h3>Biomedical Sciences</h3><span class="edu-sch">University of Roehampton</span><span class="edu-yr">First Class Honours &middot; 2020—2023</span></div>
+      <div class="edu-card glow-card" data-r data-d="0.16"><div class="glow-spot"></div><span class="edu-deg">MIBMS</span><h3>Biomedical Science</h3><span class="edu-sch">Professional Membership</span><span class="edu-yr">Registered Member</span></div>
+    </div>
+    <div class="devices" data-r>
+      <h3>POCT Device Portfolio</h3>
+      <p>Hands-on with 15+ devices across NHS networks</p>
+      <div class="dev-tags"><span>Nova StatStrip</span><span>Radiometer ABL90</span><span>i-STAT Alinity</span><span>Abbott ID NOW</span><span>MeMed BV</span><span>Genedrive</span><span>HemoCue Hb 201+</span><span>CoaguChek INR XS Pro</span><span>Siemens Clinitek Status+</span><span>Hemochron</span><span>Horiba ABX Micros ES60</span><span>DCA Vantage</span><span>LumiraDx</span><span>Quidel Sofia 2</span><span>TEG</span><span>FFN</span><span>PLGF</span><span>Actim Partus & PROM</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="sec-top" data-r>
+      <span class="sec-idx">05</span><span class="sec-line"></span><span class="sec-lbl">Contact</span>
+    </div>
+    <div class="cta-block">
+      <h2 class="cta-h" data-r>
+        <span class="line-wrap"><span class="line-text">Let's build</span></span>
+        <span class="line-wrap"><span class="line-text">something great<span class="dot-accent">.</span></span></span>
+      </h2>
+      <p class="cta-p" data-r>Whether you need POCT consultancy, product strategy, or want to explore a collaboration.</p>
+      <a href="mailto:adnanalrefai@gmail.com" class="cta-email magnetic" data-r>
+        <span>adnanalrefai@gmail.com</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#experience" class="nav-link">Career</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <a href="mailto:adnanalrefai@gmail.com" class="nav-cta magnetic" data-strength="10">
-        <span>Let's Talk</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
-    </div>
-  </nav>
-
-  <main>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <canvas id="particleCanvas" class="hero-canvas"></canvas>
-    <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-badge" data-reveal>
-          <span class="badge-dot"></span>
-          Healthcare Technology & Product Innovation
-        </div>
-        <h1 class="hero-title">
-          <div class="split-line" data-reveal data-delay="0.1"><span class="line-inner">ADNAN</span></div>
-          <div class="split-line" data-reveal data-delay="0.2"><span class="line-inner">ALREFAI</span></div>
-        </h1>
-        <div class="hero-role" data-reveal data-delay="0.4">
-          <span class="role-label">Currently —</span>
-          <span class="role-scramble" id="roleScramble">Product Growth Specialist</span>
-        </div>
-        <p class="hero-desc" data-reveal data-delay="0.5">Building the future of diagnostic healthcare. Deploying POCT platforms across NHS hospitals and founding HealthTech ventures that serve thousands of clinical professionals.</p>
-        <div class="hero-actions" data-reveal data-delay="0.6">
-          <a href="#work" class="btn-primary magnetic" data-strength="8">
-            <span>View My Work</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-          <a href="#contact" class="btn-outline magnetic" data-strength="8">
-            <span>Get in Touch</span>
-          </a>
-        </div>
-      </div>
-      <div class="hero-right" data-reveal data-delay="0.3">
-        <div class="hero-photo-wrap">
-          <div class="photo-ring"></div>
-          <div class="photo-ring photo-ring--2"></div>
-          <img src="/images/adnan.png" alt="Adnan Alrefai" class="hero-img" width="360" height="450">
-          <div class="photo-glow"></div>
-        </div>
+      <div class="cta-links" data-r>
+        <a href="https://wa.me/447446668474" target="_blank" rel="noopener" class="chip magnetic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        <a href="https://linkedin.com/in/adnanalrefai" target="_blank" rel="noopener" class="chip magnetic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <span class="chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>London, UK</span>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat" data-reveal data-delay="0.7">
-        <span class="stat-value" data-count="7">0</span>
-        <span class="stat-label">NHS Hospitals</span>
-      </div>
-      <div class="hero-stat" data-reveal data-delay="0.8">
-        <span class="stat-value" data-count="10000" data-suffix="+">0</span>
-        <span class="stat-label">Clinical Users</span>
-      </div>
-      <div class="hero-stat" data-reveal data-delay="0.9">
-        <span class="stat-value" data-count="10">0</span>
-        <span class="stat-label">SaaS Platforms</span>
-      </div>
-      <div class="hero-stat" data-reveal data-delay="1.0">
-        <span class="stat-value" data-count="321" data-suffix="+">0</span>
-        <span class="stat-label">API Endpoints</span>
-      </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container foot-inner">
+    <span>&copy; 2026 Adnan Alrefai</span>
+    <div class="foot-links">
+      <a href="https://poctify.com" target="_blank" rel="noopener">POCTIFY</a>
+      <a href="https://sihtak.com" target="_blank" rel="noopener">Sihtak</a>
+      <a href="https://syrianagency.com" target="_blank" rel="noopener">Syrian Agency</a>
     </div>
-    <div class="scroll-hint" data-reveal data-delay="1.2">
-      <div class="scroll-hint-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- Marquee -->
-  <section class="marquee-wrap">
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>HL7</span><span class="marquee-sep">/</span><span>FHIR</span><span class="marquee-sep">/</span><span>React Native</span><span class="marquee-sep">/</span><span>FastAPI</span><span class="marquee-sep">/</span><span>Azure</span><span class="marquee-sep">/</span><span>Python</span><span class="marquee-sep">/</span><span>ISO 15189</span><span class="marquee-sep">/</span><span>POCT</span><span class="marquee-sep">/</span><span>AI / ML</span><span class="marquee-sep">/</span><span>EHR Integration</span><span class="marquee-sep">/</span><span>TypeScript</span><span class="marquee-sep">/</span><span>DevOps</span><span class="marquee-sep">/</span><span>Middleware</span><span class="marquee-sep">/</span><span>SQL</span><span class="marquee-sep">/</span><span>Clinical Biochemistry</span><span class="marquee-sep">/</span>
-        <span>HL7</span><span class="marquee-sep">/</span><span>FHIR</span><span class="marquee-sep">/</span><span>React Native</span><span class="marquee-sep">/</span><span>FastAPI</span><span class="marquee-sep">/</span><span>Azure</span><span class="marquee-sep">/</span><span>Python</span><span class="marquee-sep">/</span><span>ISO 15189</span><span class="marquee-sep">/</span><span>POCT</span><span class="marquee-sep">/</span><span>AI / ML</span><span class="marquee-sep">/</span><span>EHR Integration</span><span class="marquee-sep">/</span><span>TypeScript</span><span class="marquee-sep">/</span><span>DevOps</span><span class="marquee-sep">/</span><span>Middleware</span><span class="marquee-sep">/</span><span>SQL</span><span class="marquee-sep">/</span><span>Clinical Biochemistry</span><span class="marquee-sep">/</span>
-      </div>
-    </div>
-    <div class="marquee marquee--reverse">
-      <div class="marquee-track">
-        <span>Quality Management</span><span class="marquee-sep">/</span><span>EQA Analytics</span><span class="marquee-sep">/</span><span>Device Connectivity</span><span class="marquee-sep">/</span><span>SaaS Architecture</span><span class="marquee-sep">/</span><span>Product Strategy</span><span class="marquee-sep">/</span><span>B2B Sales</span><span class="marquee-sep">/</span><span>NHS Deployment</span><span class="marquee-sep">/</span><span>UKAS</span><span class="marquee-sep">/</span><span>Expo</span><span class="marquee-sep">/</span><span>REST APIs</span><span class="marquee-sep">/</span><span>Node.js</span><span class="marquee-sep">/</span><span>Data Pipelines</span><span class="marquee-sep">/</span>
-        <span>Quality Management</span><span class="marquee-sep">/</span><span>EQA Analytics</span><span class="marquee-sep">/</span><span>Device Connectivity</span><span class="marquee-sep">/</span><span>SaaS Architecture</span><span class="marquee-sep">/</span><span>Product Strategy</span><span class="marquee-sep">/</span><span>B2B Sales</span><span class="marquee-sep">/</span><span>NHS Deployment</span><span class="marquee-sep">/</span><span>UKAS</span><span class="marquee-sep">/</span><span>Expo</span><span class="marquee-sep">/</span><span>REST APIs</span><span class="marquee-sep">/</span><span>Node.js</span><span class="marquee-sep">/</span><span>Data Pipelines</span><span class="marquee-sep">/</span>
-      </div>
-    </div>
-  </section>
+<script>
+(function(){
+'use strict';
+const M=window.matchMedia,mob=M('(pointer:coarse)').matches,noMo=M('(prefers-reduced-motion:reduce)').matches;
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-label" data-reveal>
-        <span class="label-num">01</span>
-        <span class="label-line"></span>
-        <span class="label-text">About</span>
-      </div>
-      <h2 class="section-heading" data-reveal>Where clinical science<br>meets product innovation</h2>
-      <div class="about-grid">
-        <div class="about-card spotlight-card" data-reveal>
-          <div class="spotlight"></div>
-          <div class="about-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h3>Healthcare IT</h3>
-          <p>HL7 messaging, FHIR APIs, EHR/LIS integration, POCT middleware, diagnostic data pipelines, and device interfacing across NHS hospital networks.</p>
-        </div>
-        <div class="about-card spotlight-card" data-reveal data-delay="0.1">
-          <div class="spotlight"></div>
-          <div class="about-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
-          <h3>Diagnostics & Quality</h3>
-          <p>15+ POCT device types, IQC/EQA analysis, ISO 15189:2022 compliance, UKAS accreditation, device connectivity & validation.</p>
-        </div>
-        <div class="about-card spotlight-card" data-reveal data-delay="0.2">
-          <div class="spotlight"></div>
-          <div class="about-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <h3>Product & Commercial</h3>
-          <p>Product strategy & roadmaps, feature prioritisation, go-to-market, B2B sales & partnerships, stakeholder engagement.</p>
-        </div>
-        <div class="about-card spotlight-card" data-reveal data-delay="0.3">
-          <div class="spotlight"></div>
-          <div class="about-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <h3>Full-Stack Development</h3>
-          <p>React Native, FastAPI, Azure cloud, SQL databases, SaaS architecture, CI/CD pipelines, and mobile app development.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ============ PRELOADER ============ */
+const loader=document.getElementById('loader'),lCount=document.getElementById('loaderCount'),lFill=document.getElementById('loaderFill');
+let pct=0,loadDone=false;
+window.addEventListener('load',()=>{loadDone=true});
+(function tick(){
+  const target=loadDone?100:Math.min(pct+Math.random()*12+2,92);
+  pct+=(target-pct)*0.3;
+  if(loadDone)pct+=(100-pct)*0.3;
+  lCount.textContent=Math.round(pct);
+  lFill.style.width=pct+'%';
+  if(pct>=99.5){
+    lCount.textContent='100';lFill.style.width='100%';
+    setTimeout(()=>{loader.classList.add('loader--go');document.body.classList.add('is-ready');fireHeroReveal()},300);
+    setTimeout(()=>{loader.style.display='none'},1200);
+    return;
+  }
+  requestAnimationFrame(tick);
+})();
 
-  <!-- Projects -->
-  <section class="projects" id="work">
-    <div class="container">
-      <div class="section-label" data-reveal>
-        <span class="label-num">02</span>
-        <span class="label-line"></span>
-        <span class="label-text">Projects</span>
-      </div>
-      <h2 class="section-heading" data-reveal>Selected work</h2>
+/* ============ CURSOR ============ */
+const ring=document.getElementById('cRing'),dot=document.getElementById('cDot');
+let cmx=-100,cmy=-100,crx=-100,cry=-100,cdx=-100,cdy=-100;
+if(!mob){
+  document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY});
+  const sel='a,button,.magnetic,.glow-card,.dev-tags span,.proj-domains a';
+  document.addEventListener('mouseover',e=>{if(e.target.closest(sel)){ring.classList.add('c-on');dot.classList.add('c-on')}});
+  document.addEventListener('mouseout',e=>{if(e.target.closest(sel)){ring.classList.remove('c-on');dot.classList.remove('c-on')}});
+  (function ac(){crx+=(cmx-crx)*0.07;cry+=(cmy-cry)*0.07;cdx+=(cmx-cdx)*0.22;cdy+=(cmy-cdy)*0.22;ring.style.transform=`translate(${crx}px,${cry}px)`;dot.style.transform=`translate(${cdx}px,${cdy}px)`;requestAnimationFrame(ac)})();
+}else{ring.style.display=dot.style.display='none'}
 
-      <!-- POCTIFY -->
-      <div class="project spotlight-card" data-reveal>
-        <div class="spotlight"></div>
-        <div class="project-inner">
-          <div class="project-top">
-            <div class="project-brand">
-              <img src="/images/poctify-logo.png" alt="POCTIFY" class="project-logo">
-              <div>
-                <span class="project-type">Founder &middot; HealthTech SaaS</span>
-                <h3 class="project-title">POCTIFY</h3>
-              </div>
-            </div>
-            <div class="project-links-top">
-              <a href="https://poctify.com" target="_blank" rel="noopener" class="project-ext magnetic" data-strength="6">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-          </div>
-          <p class="project-desc">A comprehensive Point-of-Care Testing platform with 10 live SaaS products, a mobile app, and 321+ API endpoints. Serving NHS trusts with AI-powered POCT governance, compliance automation, and analytics.</p>
-          <div class="project-tags">
-            <span>AI-Powered QMS</span><span>EQA Analytics</span><span>Device Middleware</span><span>ISO 15189</span><span>React Native</span><span>FastAPI</span><span>Azure</span><span>321+ Endpoints</span>
-          </div>
-          <div class="project-domains">
-            <a href="https://poctify.com" target="_blank" rel="noopener" class="domain">poctify.com</a>
-            <a href="https://interactive.poctify.com" target="_blank" rel="noopener" class="domain">interactive.poctify.com</a>
-            <a href="https://qms.poctify.com" target="_blank" rel="noopener" class="domain">qms.poctify.com</a>
-            <a href="https://eqa.poctify.com" target="_blank" rel="noopener" class="domain">eqa.poctify.com</a>
-            <a href="https://ai.poctify.com" target="_blank" rel="noopener" class="domain">ai.poctify.com</a>
-            <a href="https://codeshare.poctify.com" target="_blank" rel="noopener" class="domain">codeshare.poctify.com</a>
-          </div>
-        </div>
-      </div>
+/* ============ SCROLL PROGRESS ============ */
+const pBar=document.getElementById('progressBar');
+function updProgress(){const h=document.documentElement.scrollHeight-innerHeight;pBar.style.width=(h>0?(scrollY/h)*100:0)+'%'}
+window.addEventListener('scroll',updProgress,{passive:true});
 
-      <!-- Sihtak -->
-      <div class="project spotlight-card" data-reveal>
-        <div class="spotlight"></div>
-        <div class="project-inner">
-          <div class="project-top">
-            <div class="project-brand">
-              <img src="/images/sihtak-logo.png" alt="Sihtak" class="project-logo project-logo--round">
-              <div>
-                <span class="project-type">Founder &middot; AI Health App</span>
-                <h3 class="project-title">Sihtak <span class="ar">&#1589;&#1581;&#1578;&#1603;</span></h3>
-              </div>
-            </div>
-            <div class="project-links-top">
-              <a href="https://sihtak.com" target="_blank" rel="noopener" class="project-ext magnetic" data-strength="6">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-          </div>
-          <p class="project-desc">A free AI-powered health companion with 74 screens and 175 API endpoints. Voice AI chat, lab scanner OCR, medication tracking with drug interactions, nutrition, exercise, sleep & period tracking, and a PDF health passport. Fully bilingual Arabic/English.</p>
-          <div class="project-tags">
-            <span>AI Voice Chat</span><span>Lab Scanner OCR</span><span>Medication Tracker</span><span>74 Screens</span><span>React Native</span><span>FastAPI</span><span>Arabic/English</span>
-          </div>
-        </div>
-      </div>
+/* ============ NAV ============ */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('nav--s',scrollY>80)},{passive:true});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})}));
 
-      <!-- Syrian Agency -->
-      <div class="project spotlight-card" data-reveal>
-        <div class="spotlight"></div>
-        <div class="project-inner">
-          <div class="project-top">
-            <div class="project-brand">
-              <img src="/images/syrian-agency-logo.png" alt="Syrian Agency" class="project-logo">
-              <div>
-                <span class="project-type">Family Business &middot; Since 1987</span>
-                <h3 class="project-title">Syrian Agency</h3>
-              </div>
-            </div>
-            <div class="project-links-top">
-              <a href="https://syrianagency.com" target="_blank" rel="noopener" class="project-ext magnetic" data-strength="6">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-          </div>
-          <p class="project-desc">A clinical diagnostics distribution company established in 1987 in Damascus, Syria. 40+ years connecting global diagnostic manufacturers with healthcare providers. Reagents, laboratory analysers, and technical training with international experts.</p>
-          <div class="project-tags">
-            <span>40+ Years</span><span>Lab Analysers</span><span>Reagent Distribution</span><span>Technical Training</span><span>Damascus, Syria</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ============ PARTICLE CANVAS ============ */
+const cv=document.getElementById('heroCanvas'),cx=cv.getContext('2d');
+let W,H,pts=[],mpc={x:-9e3,y:-9e3};
+function szCanvas(){const h=document.getElementById('hero');W=cv.width=h.offsetWidth;H=cv.height=h.offsetHeight}
+class P{constructor(){this.reset()}
+reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.r=Math.random()*1.4+.4;this.a=Math.random()*.3+.08}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W)this.vx*=-1;if(this.y<0||this.y>H)this.vy*=-1;const dx=this.x-mpc.x,dy=this.y-mpc.y,d=Math.hypot(dx,dy);if(d<140){const f=(140-d)/140*.6;this.vx+=dx/d*f;this.vy+=dy/d*f}this.vx*=.992;this.vy*=.992}
+draw(){cx.beginPath();cx.arc(this.x,this.y,this.r,0,6.283);cx.fillStyle=`rgba(99,102,241,${this.a})`;cx.fill()}}
+function initP(){szCanvas();pts=[];const n=Math.min(Math.floor(W*H/9000),100);for(let i=0;i<n;i++)pts.push(new P())}
+function drawP(){cx.clearRect(0,0,W,H);for(let i=0;i<pts.length;i++){pts[i].update();pts[i].draw();for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d2=dx*dx+dy*dy;if(d2<16900){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(99,102,241,${.06*(1-d2/16900)})`;cx.lineWidth=.5;cx.stroke()}}}requestAnimationFrame(drawP)}
+if(!noMo){initP();drawP();window.addEventListener('resize',()=>szCanvas());cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mpc.x=e.clientX-r.left;mpc.y=e.clientY-r.top});cv.addEventListener('mouseleave',()=>{mpc.x=-9e3;mpc.y=-9e3})}
 
-  <!-- Experience -->
-  <section class="experience" id="experience">
-    <div class="container">
-      <div class="section-label" data-reveal>
-        <span class="label-num">03</span>
-        <span class="label-line"></span>
-        <span class="label-text">Career</span>
-      </div>
-      <h2 class="section-heading" data-reveal>Professional experience</h2>
-      <div class="exp-grid">
+/* ============ REVEALS ============ */
+function fireHeroReveal(){document.querySelectorAll('.hero [data-r]').forEach(el=>{const d=parseFloat(el.dataset.d||0);setTimeout(()=>el.classList.add('is-v'),d*1000)})}
+if(!noMo){
+  const rObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const d=parseFloat(e.target.dataset.d||0);setTimeout(()=>e.target.classList.add('is-v'),d*1000);rObs.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('[data-r]:not(.hero [data-r])').forEach(el=>rObs.observe(el));
+}else{document.querySelectorAll('[data-r]').forEach(el=>el.classList.add('is-v'))}
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">Nov 2025 — Present</div>
-          <div class="exp-content">
-            <h3>Product Growth & Innovation Specialist</h3>
-            <div class="exp-company">Citizen Care Health Solutions</div>
-            <p>Driving product growth for Citizen Care Connect — a device-agnostic POCT middleware platform. Leading client onboarding for NHS trusts and pre-sales presentations across UK, EU, and North America.</p>
-          </div>
-        </div>
+/* ============ COUNTERS ============ */
+const cObs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,tgt=+el.dataset.count,suf=el.dataset.suf||'',st=performance.now();
+(function tk(now){const p=Math.min((now-st)/2200,1),ez=1-Math.pow(1-p,4),v=Math.round(ez*tgt);el.textContent=tgt>=1e4?(v/1e3).toFixed(v>=tgt?0:1)+'K'+suf:v.toLocaleString()+suf;if(p<1)requestAnimationFrame(tk)})(performance.now());cObs.unobserve(el)})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">Jan 2025 — Present</div>
-          <div class="exp-content">
-            <h3>Founder & Consultant</h3>
-            <div class="exp-company">POCTIFY Ltd</div>
-            <p>Built 10 live SaaS platforms for POCT governance — AI-powered QMS, EQA analytics, operator monitoring, and an AI assistant. Consultancy to NHS trusts and device manufacturers.</p>
-          </div>
-        </div>
+/* ============ MAGNETIC ============ */
+if(!mob){document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;el.style.transform=`translate(${(e.clientX-cx)*.25}px,${(e.clientY-cy)*.25}px)`});el.addEventListener('mouseleave',()=>{el.style.transform='';el.style.transition='transform .5s cubic-bezier(.22,1,.36,1)';setTimeout(()=>el.style.transition='',500)})})}
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">May — Nov 2025</div>
-          <div class="exp-content">
-            <h3>POCT Specialist</h3>
-            <div class="exp-company">Royal Free London NHS Trust &middot; Band 5</div>
-            <p>Staff competency training for 15+ POCT devices. Middleware integrations connecting devices to LIS/EHR. IQC/EQA processes and ISO 15189:2022 compliance.</p>
-          </div>
-        </div>
+/* ============ GLOW SPOTLIGHT ============ */
+if(!mob){document.querySelectorAll('.glow-card').forEach(c=>{const s=c.querySelector('.glow-spot');if(!s)return;c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';s.style.opacity='1'});c.addEventListener('mouseleave',()=>{s.style.opacity='0'})})}
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">Feb 2024 — May 2025</div>
-          <div class="exp-content">
-            <h3>POCT Associate</h3>
-            <div class="exp-company">North West London Pathology &middot; NHS Band 4</div>
-            <p>Deployed POCT analysers across 7 NHS hospitals. Built tracking systems reducing manual reporting by ~40%. Managed onboarding for 10,000+ clinical users.</p>
-          </div>
-        </div>
+/* ============ TEXT SCRAMBLE ============ */
+const scEl=document.getElementById('scramble');
+const roles=['Product Growth Specialist','HealthTech Founder','POCT Platform Architect','Clinical Biochemist','Full-Stack Developer'];
+const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!<>-_\\/[]{}—=+*^?#';
+let rIdx=0;
+function scramble(txt){let fr=0;const len=Math.max(scEl.textContent.length,txt.length);const iv=setInterval(()=>{let o='';for(let i=0;i<len;i++){o+=i<fr?txt[i]||'':i<txt.length?glyphs[Math.random()*glyphs.length|0]:''}scEl.textContent=o;fr+=1.4;if(fr>=len+3){scEl.textContent=txt;clearInterval(iv)}},25)}
+setInterval(()=>{rIdx=(rIdx+1)%roles.length;scramble(roles[rIdx])},3500);
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">Feb 2020 — Aug 2024</div>
-          <div class="exp-content">
-            <h3>Sales Manager — Medical Technology</h3>
-            <div class="exp-company">LaboTest Ltd</div>
-            <p>Led B2B sales for medical device portfolio, surpassing revenue targets. CRM lifecycle management and WooCommerce operations.</p>
-          </div>
-        </div>
+/* ============ PARALLAX ============ */
+if(!mob&&!noMo){
+  const pEls=document.querySelectorAll('[data-parallax]');
+  window.addEventListener('scroll',()=>{const sy=scrollY;pEls.forEach(el=>{const spd=parseFloat(el.dataset.parallax);el.style.transform=`translateY(${sy*spd/100}px)`})},{passive:true});
+}
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-date">2018 — 2024</div>
-          <div class="exp-content">
-            <h3>Sales & Technical Support — Diagnostics</h3>
-            <div class="exp-company">International Diagnostics Agency (Syrian Agency)</div>
-            <p>Remote sales and technical support for 20+ international device manufacturers. Global supplier relationships in laboratory diagnostics. Family business since 1987.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Education + Devices -->
-  <section class="education">
-    <div class="container">
-      <div class="section-label" data-reveal>
-        <span class="label-num">04</span>
-        <span class="label-line"></span>
-        <span class="label-text">Education</span>
-      </div>
-      <h2 class="section-heading" data-reveal>Academic background</h2>
-      <div class="edu-grid">
-        <div class="edu-card spotlight-card" data-reveal>
-          <div class="spotlight"></div>
-          <div class="edu-badge">MSc</div>
-          <h3>Clinical Biochemistry</h3>
-          <span class="edu-school">University of Westminster</span>
-          <span class="edu-meta">Merit &middot; 2023 — 2024</span>
-        </div>
-        <div class="edu-card spotlight-card" data-reveal data-delay="0.1">
-          <div class="spotlight"></div>
-          <div class="edu-badge">BSc</div>
-          <h3>Biomedical Sciences</h3>
-          <span class="edu-school">University of Roehampton</span>
-          <span class="edu-meta">First Class Honours &middot; 2020 — 2023</span>
-        </div>
-        <div class="edu-card spotlight-card" data-reveal data-delay="0.2">
-          <div class="spotlight"></div>
-          <div class="edu-badge">MIBMS</div>
-          <h3>Institute of Biomedical Science</h3>
-          <span class="edu-school">Professional Membership</span>
-          <span class="edu-meta">Registered Member</span>
-        </div>
-      </div>
-
-      <div class="devices" data-reveal>
-        <h3 class="devices-heading">POCT Device Portfolio</h3>
-        <p class="devices-sub">Hands-on experience with 15+ devices across NHS hospital networks</p>
-        <div class="device-cloud">
-          <span>Nova StatStrip</span><span>Radiometer ABL90</span><span>i-STAT Alinity</span><span>Abbott ID NOW</span><span>MeMed BV</span><span>Genedrive</span><span>HemoCue Hb 201+</span><span>CoaguChek INR XS Pro</span><span>Siemens Clinitek Status+</span><span>Hemochron</span><span>Horiba ABX Micros ES60</span><span>DCA Vantage</span><span>LumiraDx</span><span>Quidel Sofia 2</span><span>TEG</span><span>FFN</span><span>PLGF</span><span>Actim Partus & PROM</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-label" data-reveal>
-        <span class="label-num">05</span>
-        <span class="label-line"></span>
-        <span class="label-text">Contact</span>
-      </div>
-      <div class="contact-inner">
-        <h2 class="contact-title" data-reveal>
-          <div class="split-line"><span class="line-inner">Let's build</span></div>
-          <div class="split-line"><span class="line-inner">something great.</span></div>
-        </h2>
-        <p class="contact-desc" data-reveal>Whether you need POCT consultancy, product strategy, or want to discuss a collaboration.</p>
-        <a href="mailto:adnanalrefai@gmail.com" class="contact-email magnetic" data-strength="6" data-reveal>
-          <span>adnanalrefai@gmail.com</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-        <div class="contact-row" data-reveal>
-          <a href="https://wa.me/447446668474" target="_blank" rel="noopener" class="contact-chip magnetic" data-strength="6">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-          <a href="https://linkedin.com/in/adnanalrefai" target="_blank" rel="noopener" class="contact-chip magnetic" data-strength="6">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <span class="contact-chip">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            London, UK
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>&copy; 2026 Adnan Alrefai</span>
-      <div class="footer-links">
-        <a href="https://poctify.com" target="_blank" rel="noopener">POCTIFY</a>
-        <a href="https://sihtak.com" target="_blank" rel="noopener">Sihtak</a>
-        <a href="https://syrianagency.com" target="_blank" rel="noopener">Syrian Agency</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-  (function(){
-    'use strict';
-    const isMobile = window.matchMedia('(pointer:coarse)').matches;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-    // ============================================================
-    // PRELOADER
-    // ============================================================
-    const preloader = document.getElementById('preloader');
-    const preLines = preloader.querySelectorAll('.pre-line');
-    const preFill = preloader.querySelector('.preloader-fill');
-
-    let loaded = false;
-    window.addEventListener('load', () => { loaded = true; });
-
-    // Animate preloader
-    setTimeout(() => {
-      preLines.forEach((l, i) => {
-        setTimeout(() => l.classList.add('pre-line--show'), i * 150);
-      });
-    }, 100);
-
-    setTimeout(() => {
-      preFill.style.width = '100%';
-    }, 300);
-
-    function dismissPreloader() {
-      preloader.classList.add('preloader--done');
-      document.body.classList.add('ready');
-      setTimeout(() => { preloader.style.display = 'none'; }, 800);
-      triggerHeroReveals();
-    }
-
-    // Wait for load + minimum visual time
-    (function checkReady() {
-      if (loaded) {
-        setTimeout(dismissPreloader, 600);
-      } else {
-        setTimeout(checkReady, 50);
-      }
-    })();
-
-    // ============================================================
-    // CURSOR (ring + dot)
-    // ============================================================
-    const ring = document.getElementById('cursorRing');
-    const dot = document.getElementById('cursorDot');
-    let mx = -100, my = -100, rx = -100, ry = -100, dx = -100, dy = -100;
-
-    if (!isMobile) {
-      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-      const interactives = 'a, button, .magnetic, .spotlight-card, .device-cloud span, .domain';
-      document.addEventListener('mouseover', e => {
-        if (e.target.closest(interactives)) {
-          ring.classList.add('cursor--active');
-          dot.classList.add('cursor--active');
-        }
-      });
-      document.addEventListener('mouseout', e => {
-        if (e.target.closest(interactives)) {
-          ring.classList.remove('cursor--active');
-          dot.classList.remove('cursor--active');
-        }
-      });
-
-      (function raf() {
-        rx += (mx - rx) * 0.08;
-        ry += (my - ry) * 0.08;
-        dx += (mx - dx) * 0.2;
-        dy += (my - dy) * 0.2;
-        ring.style.transform = `translate(${rx}px, ${ry}px)`;
-        dot.style.transform = `translate(${dx}px, ${dy}px)`;
-        requestAnimationFrame(raf);
-      })();
-    } else {
-      ring.style.display = 'none';
-      dot.style.display = 'none';
-    }
-
-    // ============================================================
-    // PARTICLE CANVAS
-    // ============================================================
-    const canvas = document.getElementById('particleCanvas');
-    const ctx = canvas.getContext('2d');
-    let cW, cH, particles = [], mouseCanvas = { x: -999, y: -999 };
-
-    function resizeCanvas() {
-      const hero = document.getElementById('hero');
-      cW = canvas.width = hero.offsetWidth;
-      cH = canvas.height = hero.offsetHeight;
-    }
-
-    class Particle {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * cW;
-        this.y = Math.random() * cH;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.r = Math.random() * 1.5 + 0.5;
-        this.alpha = Math.random() * 0.4 + 0.1;
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > cW) this.vx *= -1;
-        if (this.y < 0 || this.y > cH) this.vy *= -1;
-
-        // Mouse repulsion
-        const ddx = this.x - mouseCanvas.x;
-        const ddy = this.y - mouseCanvas.y;
-        const dist = Math.sqrt(ddx * ddx + ddy * ddy);
-        if (dist < 120) {
-          const force = (120 - dist) / 120 * 0.8;
-          this.vx += (ddx / dist) * force;
-          this.vy += (ddy / dist) * force;
-        }
-        // Damping
-        this.vx *= 0.99;
-        this.vy *= 0.99;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99,102,241,${this.alpha})`;
-        ctx.fill();
-      }
-    }
-
-    function initParticles() {
-      resizeCanvas();
-      particles = [];
-      const count = Math.min(Math.floor((cW * cH) / 8000), 120);
-      for (let i = 0; i < count; i++) particles.push(new Particle());
-    }
-
-    function drawLines() {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const ddx = particles[i].x - particles[j].x;
-          const ddy = particles[i].y - particles[j].y;
-          const dist = ddx * ddx + ddy * ddy;
-          if (dist < 14400) { // 120px
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(99,102,241,${0.08 * (1 - dist / 14400)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, cW, cH);
-      particles.forEach(p => { p.update(); p.draw(); });
-      drawLines();
-      requestAnimationFrame(animateParticles);
-    }
-
-    if (!prefersReduced) {
-      initParticles();
-      animateParticles();
-      window.addEventListener('resize', () => { resizeCanvas(); });
-      canvas.addEventListener('mousemove', e => {
-        const r = canvas.getBoundingClientRect();
-        mouseCanvas.x = e.clientX - r.left;
-        mouseCanvas.y = e.clientY - r.top;
-      });
-      canvas.addEventListener('mouseleave', () => { mouseCanvas.x = -999; mouseCanvas.y = -999; });
-    }
-
-    // ============================================================
-    // SCROLL PROGRESS
-    // ============================================================
-    const scrollBar = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      scrollBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-    }, { passive: true });
-
-    // ============================================================
-    // NAV
-    // ============================================================
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('nav--scrolled', window.scrollY > 80);
-    }, { passive: true });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) t.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // ============================================================
-    // REVEAL ON SCROLL
-    // ============================================================
-    function triggerHeroReveals() {
-      document.querySelectorAll('.hero [data-reveal]').forEach(el => {
-        const d = parseFloat(el.dataset.delay || 0);
-        setTimeout(() => el.classList.add('revealed'), d * 1000);
-      });
-    }
-
-    if (!prefersReduced) {
-      const revealObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const d = parseFloat(e.target.dataset.delay || 0);
-            setTimeout(() => e.target.classList.add('revealed'), d * 1000);
-            revealObs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-      // Only observe non-hero elements (hero handled by preloader)
-      document.querySelectorAll('[data-reveal]:not(.hero [data-reveal])').forEach(el => revealObs.observe(el));
-    } else {
-      document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('revealed'));
-    }
-
-    // ============================================================
-    // ANIMATED COUNTERS
-    // ============================================================
-    const counterObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target;
-        const target = parseInt(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        const start = performance.now();
-        const dur = 2200;
-        (function tick(now) {
-          const p = Math.min((now - start) / dur, 1);
-          const ease = 1 - Math.pow(1 - p, 4);
-          const val = Math.round(ease * target);
-          el.textContent = target >= 10000
-            ? (val / 1000).toFixed(val >= target ? 0 : 1) + 'K' + suffix
-            : val.toLocaleString() + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        })(performance.now());
-        counterObs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
-
-    // ============================================================
-    // MAGNETIC BUTTONS
-    // ============================================================
-    if (!isMobile) {
-      document.querySelectorAll('.magnetic').forEach(el => {
-        const strength = parseFloat(el.dataset.strength || 8);
-        el.addEventListener('mousemove', e => {
-          const r = el.getBoundingClientRect();
-          const cx = r.left + r.width / 2;
-          const cy = r.top + r.height / 2;
-          el.style.transform = `translate(${(e.clientX - cx) / strength}px, ${(e.clientY - cy) / strength}px)`;
-        });
-        el.addEventListener('mouseleave', () => {
-          el.style.transform = '';
-          el.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
-          setTimeout(() => el.style.transition = '', 500);
-        });
-      });
-    }
-
-    // ============================================================
-    // SPOTLIGHT CARDS (mouse-following gradient glow)
-    // ============================================================
-    if (!isMobile) {
-      document.querySelectorAll('.spotlight-card').forEach(card => {
-        const spot = card.querySelector('.spotlight');
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          spot.style.left = (e.clientX - r.left) + 'px';
-          spot.style.top = (e.clientY - r.top) + 'px';
-          spot.style.opacity = '1';
-        });
-        card.addEventListener('mouseleave', () => { spot.style.opacity = '0'; });
-      });
-    }
-
-    // ============================================================
-    // TEXT SCRAMBLE (role cycling)
-    // ============================================================
-    const roleEl = document.getElementById('roleScramble');
-    const roles = ['Product Growth Specialist', 'HealthTech Founder', 'POCT Platform Architect', 'Clinical Biochemist', 'Full-Stack Developer'];
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%';
-    let roleIdx = 0;
-
-    function scrambleTo(text) {
-      let frame = 0;
-      const len = Math.max(roleEl.textContent.length, text.length);
-      const interval = setInterval(() => {
-        let out = '';
-        for (let i = 0; i < len; i++) {
-          if (i < frame) {
-            out += text[i] || '';
-          } else if (i < text.length) {
-            out += chars[Math.floor(Math.random() * chars.length)];
-          }
-        }
-        roleEl.textContent = out;
-        frame += 1.2;
-        if (frame >= len + 2) { roleEl.textContent = text; clearInterval(interval); }
-      }, 30);
-    }
-
-    setInterval(() => {
-      roleIdx = (roleIdx + 1) % roles.length;
-      scrambleTo(roles[roleIdx]);
-    }, 3500);
-
-    // ============================================================
-    // SCROLL VELOCITY SKEW (subtle)
-    // ============================================================
-    if (!isMobile && !prefersReduced) {
-      let lastScroll = 0, velocity = 0, ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            velocity = window.scrollY - lastScroll;
-            lastScroll = window.scrollY;
-            const skew = Math.max(-3, Math.min(3, velocity * 0.04));
-            document.querySelectorAll('.exp-item, .project').forEach(el => {
-              el.style.transform = `skewY(${skew}deg)`;
-            });
-            setTimeout(() => {
-              document.querySelectorAll('.exp-item, .project').forEach(el => {
-                el.style.transform = '';
-              });
-            }, 150);
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-    }
-
-  })();
-  </script>
-
+/* ============ VELOCITY SKEW ============ */
+if(!mob&&!noMo){
+  let lsy=0,vel=0,skewing=false;
+  window.addEventListener('scroll',()=>{if(!skewing){requestAnimationFrame(()=>{vel=scrollY-lsy;lsy=scrollY;const s=Math.max(-2.5,Math.min(2.5,vel*.03));document.querySelectorAll('.proj,.exp').forEach(el=>{el.style.transform=`skewY(${s}deg)`});setTimeout(()=>{document.querySelectorAll('.proj,.exp').forEach(el=>{el.style.transform=''})},120);skewing=false});skewing=true}},{passive:true});
+}
+})();
+</script>
 </body>
 </html>
