@@ -46,17 +46,9 @@
 <!-- ======== CSS FALLBACK (no WebGL) ======== -->
 <div class="fluid-fallback" id="fluidFallback"></div>
 
-<!-- ======== CURSOR TRAIL ======== -->
-<div class="trail" id="trail">
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-  <div class="trail-dot"></div>
-</div>
+<!-- ======== CURSOR ======== -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 
 <!-- ======== GRAIN + PROGRESS ======== -->
 <div class="grain"></div>
@@ -76,8 +68,20 @@
       <span>Let's Talk</span>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
     </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ======== MOBILE NAV ======== -->
+<div class="mob-nav" id="mobNav">
+  <a href="#about" class="mob-nl">About</a>
+  <a href="#work" class="mob-nl">Work</a>
+  <a href="#career" class="mob-nl">Career</a>
+  <a href="#contact" class="mob-nl">Contact</a>
+  <a href="mailto:adnanalrefai@gmail.com" class="mob-nl mob-nl--cta">Let's Talk</a>
+</div>
 
 <main>
 
@@ -165,6 +169,8 @@
   </div>
 </section>
 
+<div class="sec-divider"></div>
+
 <!-- ======== PROJECTS (STACKING) ======== -->
 <section class="projects" id="work">
   <div class="container">
@@ -213,6 +219,8 @@
   </div>
 </section>
 
+<div class="sec-divider"></div>
+
 <!-- ======== CAREER ======== -->
 <section class="career" id="career">
   <div class="container">
@@ -230,6 +238,8 @@
     </div>
   </div>
 </section>
+
+<div class="sec-divider"></div>
 
 <!-- ======== EDUCATION ======== -->
 <section class="edu">
@@ -249,6 +259,8 @@
     </div>
   </div>
 </section>
+
+<div class="sec-divider"></div>
 
 <!-- ======== CONTACT ======== -->
 <section class="contact" id="contact">
@@ -397,22 +409,22 @@ function doSplat(x,y,dx,dy,color){
   gl.uniform1i(splatP.u.uTarget,dye.read.attach(0));gl.uniform3f(splatP.u.color,color.r,color.g,color.b);blit(dye.write);dye.swap();
 }
 function rndColor(){
-  const cs=[[.4,.4,1],[.7,.3,1],[.12,.82,.92],[.3,.55,1],[.55,.2,.9]];
+  const cs=[[.4,.4,1],[.5,.5,1],[.32,.35,.98],[.45,.5,1],[.38,.42,.95]];
   const c=cs[Math.random()*cs.length|0];return{r:c[0]*.35,g:c[1]*.35,b:c[2]*.35}
 }
 function autoSplat(){doSplat(Math.random(),Math.random(),(Math.random()-.5)*600,(Math.random()-.5)*600,rndColor())}
 
-/* --- Mouse/touch input --- */
-let fMX=0,fMY=0,fPX=0,fPY=0,fDown=false;
+/* --- Mouse/touch input (document-level for full-page fluid) --- */
+let fMX=0,fMY=0,fPX=0,fPY=0;
 function onPointerMove(x,y){
-  fPX=fMX;fPY=fMY;fMX=x/fc.width;fMY=1-y/fc.height;
+  fPX=fMX;fPY=fMY;fMX=x/innerWidth;fMY=1-y/innerHeight;
   const dx=(fMX-fPX)*SPLAT_FORCE,dy=(fMY-fPY)*SPLAT_FORCE;
   doSplat(fMX,fMY,dx,dy,rndColor());
 }
 if(!isMob){
-  fc.addEventListener('mousemove',e=>{const r=fc.getBoundingClientRect();onPointerMove(e.clientX-r.left,e.clientY-r.top)});
+  document.addEventListener('mousemove',e=>{if(fluidOK)onPointerMove(e.clientX,e.clientY)});
 }
-fc.addEventListener('touchmove',e=>{e.preventDefault();const t=e.touches[0],r=fc.getBoundingClientRect();onPointerMove(t.clientX-r.left,t.clientY-r.top)},{passive:false});
+document.addEventListener('touchmove',e=>{if(fluidOK){const t=e.touches[0];onPointerMove(t.clientX,t.clientY)}},{passive:true});
 
 /* --- Fluid loop --- */
 let fluidLastT=Date.now();
@@ -449,21 +461,22 @@ window.addEventListener('load',()=>{loadDone=true});
 })();
 
 /* ==================================================================
-   CURSOR TRAIL (8 dots)
+   CURSOR (ring + dot)
    ================================================================== */
-let mx=-100,my=-100;
-const trailEls=document.querySelectorAll('.trail-dot');
-const trail=Array.from(trailEls).map((el,i)=>({el,x:-100,y:-100,s:20-i*2,lerp:.3-i*.033}));
+const cRing=document.getElementById('cursorRing'),cDot=document.getElementById('cursorDot');
+let cmx=-100,cmy=-100,ringX=-100,ringY=-100,dotX=-100,dotY=-100;
 if(!isMob&&!noMo){
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY;document.body.classList.add('cursor-ready')});
   const interSel='a,button,.magnetic,.glow-card,.dev-tags span,.card-domains a,.chip';
-  document.addEventListener('mouseover',e=>{if(e.target.closest(interSel))document.body.classList.add('trail-hover')});
-  document.addEventListener('mouseout',e=>{if(e.target.closest(interSel))document.body.classList.remove('trail-hover')});
-  (function animTrail(){
-    let px=mx,py=my;
-    trail.forEach(d=>{d.x+=(px-d.x)*d.lerp;d.y+=(py-d.y)*d.lerp;d.el.style.transform=`translate(${d.x-d.s/2}px,${d.y-d.s/2}px)`;px=d.x;py=d.y});
-    requestAnimationFrame(animTrail)})();
-}else{document.getElementById('trail').style.display='none'}
+  document.addEventListener('mouseover',e=>{if(e.target.closest(interSel))document.body.classList.add('cursor-hover')});
+  document.addEventListener('mouseout',e=>{if(e.target.closest(interSel))document.body.classList.remove('cursor-hover')});
+  (function animCursor(){
+    ringX+=(cmx-ringX)*.07;ringY+=(cmy-ringY)*.07;
+    dotX+=(cmx-dotX)*.22;dotY+=(cmy-dotY)*.22;
+    cRing.style.transform=`translate(${ringX-22}px,${ringY-22}px)`;
+    cDot.style.transform=`translate(${dotX-3}px,${dotY-3}px)`;
+    requestAnimationFrame(animCursor)})();
+}else{cRing.style.display='none';cDot.style.display='none'}
 
 /* ==================================================================
    CHARACTER-SPLIT HERO WITH SPRING PHYSICS
@@ -505,29 +518,6 @@ if(!isMob&&!noMo){
 }
 
 /* ==================================================================
-   SCROLL-LINKED COLOR SHIFT
-   ================================================================== */
-const colorStops=[
-  {pos:0,h:239,s:84,l:67},     // indigo
-  {pos:.22,h:187,s:78,l:55},   // cyan
-  {pos:.45,h:38,s:92,l:50},    // amber
-  {pos:.7,h:217,s:91,l:60},    // blue
-  {pos:1,h:271,s:91,l:65}      // purple
-];
-function lerpHSL(t){
-  let i=0;for(let j=1;j<colorStops.length;j++){if(t<=colorStops[j].pos){i=j-1;break}if(j===colorStops.length-1)i=j-1}
-  const a=colorStops[i],b=colorStops[i+1];
-  const f=(t-a.pos)/(b.pos-a.pos);
-  return`hsl(${a.h+(b.h-a.h)*f},${a.s+(b.s-a.s)*f}%,${a.l+(b.l-a.l)*f}%)`
-}
-function updateAccent(){
-  const h=document.documentElement.scrollHeight-innerHeight;
-  const t=h>0?scrollY/h:0;
-  document.documentElement.style.setProperty('--ac',lerpHSL(t));
-}
-window.addEventListener('scroll',updateAccent,{passive:true});
-
-/* ==================================================================
    SCROLL PROGRESS
    ================================================================== */
 const pBar=document.getElementById('progressBar');
@@ -539,7 +529,56 @@ window.addEventListener('scroll',updProg,{passive:true});
    ================================================================== */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('nav--s',scrollY>80)},{passive:true});
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})}));
+
+/* ==================================================================
+   MOBILE NAV
+   ================================================================== */
+const burger=document.getElementById('navBurger'),mobNav=document.getElementById('mobNav');
+if(burger){
+  burger.addEventListener('click',()=>{
+    const open=burger.classList.toggle('is-open');
+    mobNav.classList.toggle('is-open',open);
+    burger.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  mobNav.querySelectorAll('.mob-nl').forEach(a=>a.addEventListener('click',()=>{
+    burger.classList.remove('is-open');mobNav.classList.remove('is-open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }));
+}
+
+/* ==================================================================
+   LERP SMOOTH SCROLL (desktop only, preserves sticky)
+   ================================================================== */
+let smoothTarget=scrollY,smoothCurrent=scrollY,smoothing=false;
+const SMOOTH_LERP=0.08;
+
+if(!isMob&&!noMo){
+  window.addEventListener('wheel',e=>{
+    e.preventDefault();
+    smoothTarget+=e.deltaY;
+    smoothTarget=Math.max(0,Math.min(smoothTarget,document.documentElement.scrollHeight-innerHeight));
+    if(!smoothing){smoothing=true;smoothLoop()}
+  },{passive:false});
+
+  function smoothLoop(){
+    smoothCurrent+=(smoothTarget-smoothCurrent)*SMOOTH_LERP;
+    if(Math.abs(smoothTarget-smoothCurrent)<.5){smoothCurrent=smoothTarget;window.scrollTo(0,smoothCurrent);smoothing=false;return}
+    window.scrollTo(0,smoothCurrent);
+    requestAnimationFrame(smoothLoop);
+  }
+
+  window.addEventListener('scroll',()=>{if(!smoothing){smoothTarget=scrollY;smoothCurrent=scrollY}},{passive:true});
+}
+
+/* Anchor clicks */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(!t)return;
+  const y=t.getBoundingClientRect().top+scrollY-80;
+  if(!isMob&&!noMo){smoothTarget=y;if(!smoothing){smoothing=true;smoothLoop()}}
+  else{window.scrollTo({top:y,behavior:'smooth'})}
+}));
 
 /* ==================================================================
    REVEALS (IntersectionObserver)
@@ -586,23 +625,13 @@ setInterval(()=>{rIdx=(rIdx+1)%roles.length;scramble(roles[rIdx])},3500);
 const stackCards=document.querySelectorAll('.stack-card');
 function updateStack(){
   stackCards.forEach((card,i)=>{
-    const r=card.getBoundingClientRect();const topOff=80+i*30;
+    const r=card.getBoundingClientRect();const topOff=80+i*28;
     const next=stackCards[i+1];
     if(next){const nr=next.getBoundingClientRect();const overlap=Math.max(0,topOff+r.height-nr.top);const p=Math.min(1,overlap/r.height);
     card.style.transform=`scale(${1-p*.04})`;card.style.filter=`brightness(${1-p*.2})`}
   });
 }
 window.addEventListener('scroll',updateStack,{passive:true});
-
-/* ==================================================================
-   VELOCITY SKEW
-   ================================================================== */
-if(!isMob&&!noMo){
-  let lsy=0,skewing=false;
-  window.addEventListener('scroll',()=>{if(!skewing){requestAnimationFrame(()=>{const vel=scrollY-lsy;lsy=scrollY;const s=Math.max(-2.5,Math.min(2.5,vel*.03));
-  document.querySelectorAll('.stack-card,.exp').forEach(el=>{el.style.transform=`skewY(${s}deg)`});
-  setTimeout(()=>{document.querySelectorAll('.stack-card,.exp').forEach(el=>{el.style.transform=''})},120);skewing=false});skewing=true}},{passive:true});
-}
 
 })();
 </script>
